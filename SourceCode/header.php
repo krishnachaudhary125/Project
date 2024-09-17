@@ -9,7 +9,7 @@
 <body>
 <header>
         <div class="logo">
-            <a href="home_page.html" class="logo"><img src="Photos/GamEase_transparent-.png" alt="Logo"></a>
+            <a href="index.php" class="logo"><img src="Photos/GamEase_transparent-.png" alt="Logo"></a>
         </div>
         <div class="nav-bar">
                 <form class="search-bar">
@@ -17,10 +17,10 @@
                     <button type="submit"><img src="Photos/search.png" alt=""></button>
                 </form>
             <ul>
-                <li><a href="home_page.html">Home</a></li>
-                <li><a href="#Games">Games</a></li>
-                <li><a href="about_us.html">About Us </a></li>
-                <li><a href="sign_in.html">Sign In</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="#">Games</a></li>
+                <li><a href="#">About Us </a></li>
+                <li><a href="sign_in.php">Sign In</a></li>
             </ul>
         </div>
     </header>
