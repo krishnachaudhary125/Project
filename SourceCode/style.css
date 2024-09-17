@@ -1,0 +1,108 @@
+* {
+    padding: 0;
+    margin: 0;
+    line-height: 1.5;
+    user-select: none;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+/*Header Part Start*/
+
+ul li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+header {
+    width: 100%;
+    margin: auto;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(16, 16, 20);
+}
+
+.logo {
+    width: 45%;
+    padding-left: 20px;
+}
+
+.logo img {
+    padding: 15px 0;
+    width: 25%;
+}
+
+.nav-bar {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.search-bar {
+    width: 100%;
+    height: 35px;
+    max-width: 400px;
+    background-color: transparent;
+    border: 2px solid rgba(225, 225, 225, 0.2);
+    display: flex;
+    align-items: center;
+    border-radius: 13px;
+}
+
+.nav-bar .search-bar input {
+    background: transparent;
+    flex: 1;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 0 20px;
+    font-size: 15px;
+}
+
+.nav-bar .search-bar input::placeholder {
+    color: white;
+}
+
+.nav-bar .search-bar button img {
+    width: 15px;
+}
+
+.nav-bar .search-bar button {
+    border: 0;
+    border-radius: 50%;
+    width: 35px;
+    padding-right: 10px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.nav-bar ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    width: 100%;
+}
+
+.nav-bar ul li {
+    width: 20%;
+    text-align: center;
+}
+
+.nav-bar a:hover {
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+/*Header Part End*/
