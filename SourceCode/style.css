@@ -115,7 +115,7 @@ header {
     margin: 5% 30%;
     width: 30%;
     text-align: center;
-    height: 73vh;
+    height: 500px;
 }
 
 .sign-in-form {
@@ -128,16 +128,19 @@ header {
     margin: 30px 0;
 }
 
-.sign-in-forgot a,
-.sign-in-create a {
+.sign-in-a a {
     color: white;
     text-decoration: none;
     padding: 10px 0;
+    cursor: pointer;
 }
 
-.sign-in-forgot,
-.sign-in-create {
+.sign-in-a {
     margin: 20px 0;
+}
+
+.sign-in-a a:hover {
+    text-decoration: underline;
 }
 
 .sign-in-field input {
@@ -155,6 +158,75 @@ header {
     color: white;
     border: none;
     padding: 20px;
+    cursor: pointer;
+}
+
+.sign-in-form button:hover {
+    background: rgb(0, 140, 228);
 }
 
 /* Sign In End */
+
+/* Sign Up Start */
+.sign-up-container {
+    background-color: rgb(32, 32, 32);
+    color: white;
+    padding: 60px;
+    margin: 5% 30%;
+    width: 30%;
+    text-align: center;
+    height: 680px;
+}
+
+.sign-up-form {
+    padding: 20px 0;
+}
+
+.sign-up-field {
+    width: 100%;
+    overflow: visible;
+    margin: 30px 0;
+}
+
+.sign-up-field input {
+    width: 100%;
+    padding: 20px 0;
+    background-color: rgb(32, 32, 32);
+    border: 1px solid gray;
+    color: white;
+}
+
+.sign-up-field input::placeholder {
+    padding-left: 10px;
+}
+
+.sign-up-form button {
+    margin-top: 30px;
+    width: 100%;
+    background: rgb(0, 116, 228);
+    color: white;
+    border: none;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.sign-up-form button:hover {
+    background: rgb(0, 140, 228);
+}
+
+.sign-up-a {
+    padding: 10px 0;
+}
+
+.sign-up-a a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.sign-up-a a:hover {
+    text-decoration: underline;
+}
+
+/* Sign Up End */

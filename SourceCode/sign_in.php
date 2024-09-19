@@ -14,11 +14,11 @@
                 <button type="submit">SIGN IN</button>
             </div>
             <p class="sign-in-p">OR</p>
-            <div class="sign-in-forgot">
+            <div class="sign-in-a">
                 <a href="#" target="_self">Forgot Password</a>
             </div>
-            <div class="sign-in-create">
-                <a href="#" target="_self">Create account</a>
+            <div class="sign-in-a">
+                <a href="sign_up.php" target="_self">Create account</a>
             </div>
         </form>
     </div>
