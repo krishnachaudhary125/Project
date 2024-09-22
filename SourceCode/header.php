@@ -9,12 +9,12 @@
 <body>
 <header>
         <div class="logo">
-            <a href="index.php" class="logo"><img src="Photos/GamEase_transparent-.png" alt="Logo"></a>
+            <a href="index.php" class="logo"><img src="/Project/Photos/GamEase_transparent-.png" alt="Logo"></a>
         </div>
         <div class="nav-bar">
                 <form class="search-bar">
                     <input type="text" placeholder="Search" name="search">
-                    <button type="submit"><img src="Photos/search.png" alt=""></button>
+                    <button type="submit"><img src="/Project/Photos/search.png" alt=""></button>
                 </form>
             <ul>
                 <li><a href="index.php">Home</a></li>
