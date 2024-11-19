@@ -107,6 +107,53 @@ header {
 
 /* Header End */
 
+/* About Us Part Start */
+
+.about-us {
+    width: 100%;
+    padding: 70px 0;
+}
+
+.about-us img {
+    height: auto;
+    width: 370px;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 2));
+}
+
+.about-us-text {
+    width: 800px;
+}
+
+.about-us-main {
+    margin: 0 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.about-us h1 {
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 35px;
+}
+
+.about-us h5 {
+    text-align: center;
+    font-size: 35px;
+    margin-top: 35px;
+    letter-spacing: 5px;
+}
+
+.about-us-text p {
+    letter-spacing: 1px;
+    line-height: 35px;
+    font-size: 18px;
+    text-align: justify;
+    margin-bottom: 35px;
+}
+
+/*About  Us End */
+
 /* Sign In Start */
 .sign-in-container {
     background-color: rgb(32, 32, 32);
@@ -149,6 +196,10 @@ header {
     background-color: rgb(32, 32, 32);
     border: 1px solid gray;
     color: white;
+}
+
+.sign-in-field input::placeholder {
+    padding-left: 10px;
 }
 
 .sign-in-form button {
