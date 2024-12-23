@@ -1,7 +1,7 @@
 <footer>
     <div class="footer-container">
-    <div class="footer-logo">
-            <a href="index.php" class="logo"><img src="/Project/Photos/GamEase_transparent-.png" alt="Logo"></a>
+        <div class="footer-logo">
+            <a href="index.php" class="logo"><img src="/Project/Photos/main_logo.png" alt="Logo"></a>
         </div>
         <div class="footer-icons">
             <a href="#"><i class="fa-brands fa-facebook"></i></a>
@@ -26,4 +26,5 @@
 </footer>
 
 </body>
+
 </html>
