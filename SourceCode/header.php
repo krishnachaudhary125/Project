@@ -17,7 +17,7 @@ session_start();
 <body>
     <header>
         <div class="logo">
-            <a href="index.php" class="logo"><img src="./Photos/main_logo.png" alt="Logo"></a>
+            <a href="index.php" class="logo"><img src="/Photos/main_logo.png" alt="Logo"></a>
         </div>
         <div class="nav-bar">
             <form class="search-bar">
