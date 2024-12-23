@@ -3,11 +3,13 @@
     margin: 0;
     line-height: 1.5;
     user-select: none;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 body {
-    background-color: black;
-    color: white;
+    background-color: #cad7fda4;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 /* Header Start */
@@ -17,18 +19,50 @@ ul li {
 }
 
 a {
+    font-weight: bold;
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 header {
-    width: 100%;
-    margin: auto;
-    position: relative;
+    height: 100px;
+    width: 100vw;
+    padding: 0 35px;
+    background-color: white;
+    position: fixed;
+    z-index: 100;
+    box-shadow: 1px 1px 10px rgba(161, 182, 253, 0.825);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(16, 16, 20);
+}
+
+.container {
+    display: flex;
+    width: 100vw;
+    position: relative;
+    top: 100px;
+    z-index: 1;
+}
+
+.main-container {
+    height: calc(100vh - 100px);
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.main-container::-webkit-scrollbar-thumb {
+    background-image:
+        linear-gradient(to bottom, rgb(0, 0, 85), rgb(0, 0, 50));
+}
+
+.main-container::-webkit-scrollbar {
+    width: 7px;
+}
+
+.main-container::-webkit-scrollbar-track {
+    background-color: #9e9e9eb2;
 }
 
 .logo {
@@ -54,7 +88,7 @@ header {
     height: 35px;
     max-width: 400px;
     background-color: transparent;
-    border: 2px solid rgba(225, 225, 225, 0.2);
+    border: 3px solid;
     display: flex;
     align-items: center;
     border-radius: 13px;
@@ -65,17 +99,18 @@ header {
     flex: 1;
     border: none;
     outline: none;
-    color: white;
+    color: black;
     padding: 0 20px;
     font-size: 15px;
+    font-weight: bold;
 }
 
 .nav-bar .search-bar input::placeholder {
-    color: white;
+    color: black;
 }
 
 .nav-bar .search-bar button img {
-    width: 15px;
+    width: 20px;
 }
 
 .nav-bar .search-bar button {
@@ -91,12 +126,13 @@ header {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    color: white;
+    color: black;
     width: 100%;
 }
 
 .nav-bar ul li {
     width: 20%;
+    font-size: larger;
     text-align: center;
 }
 
@@ -105,7 +141,85 @@ header {
     transition: 0.3s;
 }
 
+.popup {
+    display: none;
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 1000;
+    justify-content: flex-end;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: black;
+}
+
+
 /* Header End */
+
+/* Banner Start */
+
+.index-container {
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.index-banner {
+    padding: 50px;
+    height: 100%;
+    align-items: center;
+}
+
+.index-banner img {
+    width: 35%;
+}
+
+.index-banner h1 {
+    font-size: 45px;
+}
+
+.index-banner p {
+    font-size: 25px;
+}
+
+.index-banner button {
+    margin-top: 30px;
+    width: 15%;
+    background: rgb(0, 116, 228);
+    color: white;
+    border: none;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.index-banner a button {
+    color: white;
+    font-size: 15px;
+}
+
+.index-banner button:hover {
+    background: rgb(0, 140, 228);
+}
+
+/* Banner Ends */
 
 /* About Us Part Start */
 
@@ -117,7 +231,7 @@ header {
 .about-us img {
     height: auto;
     width: 370px;
-    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 2));
+    filter: drop-shadow(0 0 20px rgba(161, 182, 253, 0.825));
 }
 
 .about-us-text {
@@ -156,13 +270,15 @@ header {
 
 /* Sign In Start */
 .sign-in-container {
-    background-color: rgb(32, 32, 32);
-    color: white;
+    background-color: white;
+    box-shadow: 3px 3px 10px rgb(188, 188, 188);
+    color: black;
     padding: 60px;
-    margin: 5% 30%;
+    margin: 15px auto;
     width: 30%;
     text-align: center;
     height: 500px;
+    border-radius: 30px;
 }
 
 .sign-in-form {
@@ -176,7 +292,7 @@ header {
 }
 
 .sign-in-a a {
-    color: white;
+    color: black;
     text-decoration: none;
     padding: 10px 0;
     cursor: pointer;
@@ -191,15 +307,14 @@ header {
 }
 
 .sign-in-field input {
+    font-weight: bold;
+    font-size: 15px;
     width: 100%;
-    padding: 20px 0;
-    background-color: rgb(32, 32, 32);
-    border: 1px solid gray;
-    color: white;
-}
-
-.sign-in-field input::placeholder {
-    padding-left: 10px;
+    padding: 20px 0px 20px 10px;
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    box-sizing: border-box;
 }
 
 .sign-in-form button {
@@ -220,13 +335,15 @@ header {
 
 /* Sign Up Start */
 .sign-up-container {
-    background-color: rgb(32, 32, 32);
-    color: white;
+    background-color: white;
+    box-shadow: 3px 3px 10px rgb(188, 188, 188);
+    color: black;
     padding: 60px;
-    margin: 5% 30%;
-    width: 30%;
+    margin: 15px auto;
+    max-width: 30%;
     text-align: center;
-    height: 680px;
+    height: 800px;
+    border-radius: 30px;
 }
 
 .sign-up-form {
@@ -240,15 +357,15 @@ header {
 }
 
 .sign-up-field input {
-    width: 100%;
-    padding: 20px 0;
-    background-color: rgb(32, 32, 32);
-    border: 1px solid gray;
-    color: white;
-}
-
-.sign-up-field input::placeholder {
     padding-left: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    width: 100%;
+    padding: 20px 10px;
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    box-sizing: border-box;
 }
 
 .sign-up-form button {
@@ -270,7 +387,7 @@ header {
 }
 
 .sign-up-a a {
-    color: white;
+    color: black;
     text-decoration: none;
     padding: 10px 0;
     cursor: pointer;
@@ -280,17 +397,24 @@ header {
     text-decoration: underline;
 }
 
+span {
+    color: red;
+    font-weight: normal;
+    text-align: left;
+}
+
 /* Sign Up End */
 
 /* Footer Start */
 footer {
-    background-color: rgb(16, 16, 20);
+    background-color: white;
+    box-shadow: 1px 1px 10px rgba(161, 182, 253, 0.825);
     display: flex;
 }
 
 .footer-container {
     width: 100%;
-    padding: 70px 30px 20px;
+    padding-bottom: 20px;
 }
 
 .footer-icons {
@@ -313,11 +437,11 @@ footer {
 }
 
 .footer-icons a:hover {
-    background-color: rgb(16, 16, 20);
+    background-color: white;
 }
 
 .footer-icons a:hover i {
-    color: white;
+    color: rgb(0, 116, 228);
 }
 
 .footer-nav {
@@ -334,7 +458,7 @@ footer {
 }
 
 .footer-nav ul li a {
-    color: white;
+    color: black;
     margin: 25px;
     cursor: pointer;
 }
@@ -353,3 +477,236 @@ footer {
 }
 
 /* Footer End */
+
+/* Forgot Password Start */
+
+.forgot-psw-container {
+    background-color: white;
+    box-shadow: 3px 3px 10px rgb(188, 188, 188);
+    color: black;
+    padding: 60px;
+    margin: 15px auto;
+    width: 30%;
+    text-align: center;
+    height: 450px;
+    border-radius: 30px;
+}
+
+.forgot-psw-form {
+    padding: 20px 0;
+}
+
+.forgot-psw-field {
+    width: 100%;
+    overflow: visible;
+    margin: 30px 0;
+}
+
+.forgot-psw-field input {
+    font-weight: bold;
+    font-size: 15px;
+    width: 100%;
+    padding: 20px 10px;
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    box-sizing: border-box;
+}
+
+.forgot-psw-form button {
+    margin-top: 30px;
+    width: 100%;
+    background: rgb(0, 116, 228);
+    color: white;
+    border: none;
+    padding: 20px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.forgot-psw-form button:hover {
+    background: rgb(0, 140, 228);
+}
+
+.forgot-psw h1 {
+    margin-bottom: 30px;
+}
+
+.forgot-psw-sign-in-a a {
+    color: black;
+    text-decoration: none;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.forgot-psw-sign-in-a {
+    margin: 20px 0;
+}
+
+.forgot-psw-sign-in-a a:hover {
+    text-decoration: underline;
+}
+
+/* Forgot Password End */
+
+/* Games Start */
+
+.category-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 35px 0px;
+}
+
+.category-slider {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    overflow: hidden;
+}
+
+.slider {
+    overflow: hidden;
+    width: 100%;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-track .category a {
+    color: white;
+}
+
+.category {
+    flex: 0 0 25%;
+    text-align: center;
+    padding: 20px;
+    background: #007BFF;
+    color: white;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.arrow.previous {
+    left: 10px;
+}
+
+.arrow.next {
+    right: 10px;
+}
+
+.game-container {
+    min-height: 230px;
+    max-width: 1200px;
+    margin: 15px auto;
+    background-color: #ffffff;
+    border-radius: 30px;
+    box-shadow: 3px 3px 10px rgb(188, 188, 188);
+    padding: 10px;
+    transition: 0.3s;
+    display: flex;
+}
+
+.media-container {
+    position: relative;
+    width: 350px;
+    height: 230px;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+    border-radius: 25px;
+}
+
+.video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 25px;
+}
+
+.game-container:hover .image {
+    opacity: 0;
+}
+
+.game-container:hover .video {
+    opacity: 1;
+    animation: playVideo 0.1s forwards;
+}
+
+@keyframes playVideo {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.game-container:hover {
+    transform: scale(1.05);
+}
+
+.game-info {
+    width: 100%;
+}
+
+.game-title {
+    text-align: center;
+}
+
+.game-description p {
+    padding: 0px 25px
+}
+
+.game-cart {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px 15px;
+    margin-right: 10px;
+}
+
+.cost {
+    margin-right: 15px;
+    background-color: rgb(188, 188, 188);
+    padding: 5px 9px;
+}
+
+.game-cart button {
+    border: none;
+    background-color: rgb(0, 116, 228);
+    color: white;
+    padding: 5px 9px;
+}
+
+.game-cart button:hover {
+    background: rgb(0, 140, 228);
+}
+
+/* Games Ends */
