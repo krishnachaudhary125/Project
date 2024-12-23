@@ -1,7 +1,7 @@
 <?php
 include "header.php";
-include "./Database/connection.php";
-include "./functions/game_function.php";
+include "/Project/Database/connection.php";
+include "./Functions/game_function.php";
 ?>
 <div class="category-container">
     <div class="category-slider">
