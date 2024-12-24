@@ -1,6 +1,6 @@
 <?php
 include "header.php";
-include "/Project/Database/connection.php";
+include "../Database/connection.php";
 
 if (isset($_POST['submit'])) {
     $fullname = $_POST['fname'];
