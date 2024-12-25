@@ -10,7 +10,7 @@ if (isset($_POST['submit']) == true) {
     $sql = "
         SELECT fullname, role FROM users WHERE email='$email' AND password='$pswHash'
         UNION
-        SELECT fullname, 'admin' AS role FROM admin WHERE email='$email' AND password='$pswHash'
+        SELECT fullname, role FROM admin WHERE email='$email' AND password='$pswHash'
     ";
     
     $result = mysqli_query($conn, $sql);
