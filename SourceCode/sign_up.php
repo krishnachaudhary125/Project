@@ -26,6 +26,7 @@ if (isset($_POST['submit'])) {
             $result = mysqli_query($conn, $sqlQuery);
             if ($result) {
                 echo "<script>alert('User created Succesfully.')</script>";
+                header('location:sign_in.php');
             }
         }
     }
@@ -39,7 +40,7 @@ if (isset($_POST['submit'])) {
                 <input type="text" id="fname" name="fname" value="" placeholder="Full Name">
             </div>
             <div class="sign-up-field">
-                <input type="text" id="phone" name="phone" value="" placeholder="Mobile Number (Not Mandatory)">
+                <input type="text" id="phone" name="phone" value="" placeholder="Mobile Number">
             </div>
             <div class="sign-up-field">
                 <input type="email" id="email" name="email" value="" placeholder="E-Mail">
