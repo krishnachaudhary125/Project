@@ -1,7 +1,7 @@
 <footer>
     <div class="footer-container">
         <div class="footer-logo">
-            <a href="index.php" class="logo"><img src="/Project/Photos/main_logo.png" alt="Logo"></a>
+            <a href="index.php" class="logo"><img src="../Photos/logo.png" alt="Logo"></a>
         </div>
         <div class="footer-icons">
             <a href="#"><i class="fa-brands fa-facebook"></i></a>

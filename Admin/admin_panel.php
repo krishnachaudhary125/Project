@@ -9,10 +9,10 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 ?>
 <header>
     <div class="dashboard-logo">
-        <img src="./image/logo.png" alt="logo" class="dash-logo">
+        <img src="../Photos/logo.png" alt="logo" class="dash-logo">
     </div>
     <div class="dash-menu">
-        <img src="./image/hamburger.png" alt="Menu" class="menu-icon" id="menu-icon">
+        <img src="../Photos/hamburger.png" alt="Menu" class="menu-icon" id="menu-icon">
     </div>
 </header>
 
@@ -22,37 +22,37 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
             <div class="option-container">
                 <a href="./admin_panel.php?dashboard">
                     <div class="nav-option option1">
-                        <img src="./image/dashboard.png" alt="Dashboard" class="option-icon">
+                        <img src="../Photos/dashboard.png" alt="Dashboard" class="option-icon">
                         <h3>Dashboard</h3>
                     </div>
                 </a>
                 <a href="./admin_panel.php?admin">
                     <div class="nav-option option4">
-                        <img src="./image/admin.png" alt="Admins" class="option-icon">
+                        <img src="../Photos/admin.png" alt="Admins" class="option-icon">
                         <h3>Admin</h3>
                     </div>
                 </a>
                 <a href="./admin_panel.php?games">
                     <div class="nav-option option2">
-                        <img src="./image/game.png" alt="Games" class="option-icon">
+                        <img src="../Photos/game.png" alt="Games" class="option-icon">
                         <h3>Games</h3>
                     </div>
                 </a>
                 <a href="./admin_panel.php?users">
                     <div class="nav-option option5">
-                        <img src="./image/user.png" alt="Users" class="option-icon">
+                        <img src="../Photos/user.png" alt="Users" class="option-icon">
                         <h3>Users</h3>
                     </div>
                 </a>
                 <a href="./admin_panel.php?category">
                     <div class="nav-option option5">
-                        <img src="./image/category.png" alt="Category" class="option-icon">
+                        <img src="../Photos/category.png" alt="Category" class="option-icon">
                         <h3>Category</h3>
                     </div>
                 </a>
                 <a href="./logout.php">
                     <div class="nav-option option6">
-                        <img src="./image/logout.png" alt="Logout" class="option-icon">
+                        <img src="../Photos/logout.png" alt="Logout" class="option-icon">
                         <h3>Logout</h3>
                     </div>
                 </a>
