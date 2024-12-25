@@ -38,7 +38,7 @@ session_start();
             <span class="close-btn" onclick="closePopup()">&times;</span>
             <div class="account_content">
                 <ul>
-                    <?php print_r($_SESSION['user_name']);
+                    <?php
                 if (isset($_SESSION['user_name'])): ?>
                     <li><a href="#"><?php echo $_SESSION['user_name']; ?></a></li>
                     <li><a href="../Admin/logout.php">Logout</a></li>
