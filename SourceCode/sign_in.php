@@ -25,7 +25,7 @@ if (isset($_POST['submit']) == true) {
         if ($row['role'] == 'admin') {
             $_SESSION['role'] = 'admin';
             $_SESSION['admin_name'] = $row['name'];
-            header('location: ./Admin/admin_panel.php?dashboard');
+            header('location: ../Admin/admin_panel.php?dashboard');
         } elseif ($row['role'] == 'user') {
             $_SESSION['role'] = 'user';
             $_SESSION['user_name'] = $row['name'];

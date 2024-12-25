@@ -10,11 +10,11 @@ if (isset($_POST['submit'])) {
     $cpsw = $_POST['cpsw'];
 
     if ($psw != $cpsw) {
-        echo "<script>alert('Password not matched.')</script>";
+        echo "<script>alert('Incorrect Password')</script>";
     } else {
         $hashPsw = sha1($psw);
 
-        $select_query = "SELECT * from users WHERE email = '$email'";
+        $select_query = "SELECT * from users WHERE email = '$email' union SELECT * from admin WHERE email = '$email'";
         $res_select = mysqli_query($conn, $select_query);
         $check = mysqli_num_rows($res_select);
         if ($check > 0) {
@@ -62,75 +62,78 @@ if (isset($_POST['submit'])) {
     </form>
 </div>
 <script>
-let formEle = document.sign_up,
-    fname = formEle.fname,
-    phone = formEle.phone,
-    email = formEle.email,
-    psw = formEle.psw,
-    cpsw = formEle.cpsw;
+document.addEventListener("DOMContentLoaded", () => {
+    const formEle = document.sign_up,
+        fname = formEle.fname,
+        phone = formEle.phone,
+        email = formEle.email,
+        psw = formEle.psw,
+        cpsw = formEle.cpsw;
 
-let fieldArr = document.querySelectorAll(".sign-up-field");
+    formEle.addEventListener("submit", e => {
+        let isValid = true;
 
-fieldArr.forEach(field => {
-    let span = document.createElement("span");
-    field.append(span);
-});
+        const clearError = (field) => {
+            if (field.nextElementSibling) {
+                field.nextElementSibling.innerText = "";
+            }
+        };
 
-formEle.addEventListener("submit", e => {
-    if (fname.value == '') {
-        fname.nextElementSibling.innerText = "Full Name is required.";
-        e.preventDefault();
-    }
-    if (phone.value == '') {
-        phone.nextElementSibling.innerText = "Contact is required.";
-        e.preventDefault();
-    }
-    if (email.value == '') {
-        email.nextElementSibling.innerText = "E-Mail is required.";
-        e.preventDefault();
-    }
-    if (psw.value == '') {
-        psw.nextElementSibling.innerText = "Password is required.";
-        e.preventDefault();
-    }
-    if (cpsw.value == '') {
-        cpsw.nextElementSibling.innerText = "Password confirmation is required.";
-        e.preventDefault();
-    }
-});
+        const setError = (field, message) => {
+            field.nextElementSibling.innerText = message;
+            isValid = false;
+        };
 
-fname.addEventListener("keyup", function() {
-    let fnamePtrn = /^[A-Z][a-z]+(?: [A-Z][a-z]+)+$/
-    if (fnamePtrn.test(this.value) == false) {
-        this.nextElementSibling.innerText = "First letter must be in capital."
-    } else {
-        this.nextElementSibling.innerText = "";
-    }
-});
-phone.addEventListener("keyup", function() {
-    let phonePtrn = /[0-9]{10}/g
-    if (phonePtrn.test(this.value) == false) {
-        this.nextElementSibling.innerText = "Invalid number."
-    } else {
-        this.nextElementSibling.innerText = "";
-    }
-});
-email.addEventListener("keyup", function() {
-    let emailPtrn = /^[\w-]+@([\w-]+\.)+[\w]{2,3}$/g
-    if (emailPtrn.test(this.value) == false) {
-        this.nextElementSibling.innerText = "Invalid email."
-    } else {
-        this.nextElementSibling.innerText = "";
-    }
-});
-psw.addEventListener("keyup", function() {
-    let pswPtrn = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
-    if (pswPtrn.test(this.value) == false) {
-        this.nextElementSibling.innerText =
-            "Password must be 8 chararacter long and must contain at least one (symbol, number and capital letter)."
-    } else {
-        this.nextElementSibling.innerText = "";
-    }
+        // Full name validation
+        if (!/^[A-Z][a-z]+(?: [A-Z][a-z]+)+$/.test(fname.value)) {
+            setError(fname,
+                "Full Name must start with capital letters and surname should be added aswell.");
+        } else {
+            clearError(fname);
+        }
+
+        // Phone validation
+        if (phone.value !== "" && !/^98\d{8}$/.test(phone.value)) {
+            setError(phone, "Phone number must be 10 digits and start with 98.");
+        } else {
+            clearError(phone);
+        }
+
+        // Email validation
+        if (!/^[\w-]+@([\w-]+\.)+[\w]{2,3}$/.test(email.value)) {
+            setError(email, "Invalid email format.");
+        } else {
+            clearError(email);
+        }
+
+        // Password validation
+        if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(psw.value)) {
+            setError(psw,
+                "Password must be at least 8 characters long and contain one uppercase, one number, and one symbol."
+            );
+        } else {
+            clearError(psw);
+        }
+
+        // Confirm password validation
+        if (psw.value !== cpsw.value) {
+            setError(cpsw, "Passwords do not match.");
+        } else {
+            clearError(cpsw);
+        }
+
+        if (!isValid) {
+            e.preventDefault();
+        }
+    });
+
+    // Added span for error messages
+    document.querySelectorAll(".sign-up-field").forEach(field => {
+        let span = document.createElement("span");
+        span.style.color = "red";
+        span.style.fontSize = "12px";
+        field.appendChild(span);
+    });
 });
 </script>
 <?php
