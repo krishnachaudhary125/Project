@@ -28,8 +28,7 @@ session_start();
                 <li><a href="index.php">Home</a></li>
                 <li><a href="games.php">Games</a></li>
                 <li><a href="about_us.php">About Us </a></li>
-                <li><a href="#" onclick="openPopup()">
-                <li><a href="#" onclick="openPopup()"><img src="../Photos/profile.png" alt="Account"
+                <li><a href="#" onclick="openPopup()"><img src="../Photos/profile.png" alt="Profile Icon"
                             class="profile-icon"></a></li></a></li>
             </ul>
         </div>
