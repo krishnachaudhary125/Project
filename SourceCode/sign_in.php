@@ -24,11 +24,11 @@ if (isset($_POST['submit']) == true) {
 
         if ($row['role'] == 'admin') {
             $_SESSION['role'] = 'admin';
-            $_SESSION['admin_name'] = $row['name'];
+            $_SESSION['admin_name'] = $row['fullname'];
             header('location: ../Admin/admin_panel.php?dashboard');
         } elseif ($row['role'] == 'user') {
             $_SESSION['role'] = 'user';
-            $_SESSION['user_name'] = $row['name'];
+            $_SESSION['user_name'] = $row['fullname'];
             header('location:index.php');
         }
     } else {

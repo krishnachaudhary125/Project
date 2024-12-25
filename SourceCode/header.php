@@ -38,10 +38,10 @@ session_start();
             <span class="close-btn" onclick="closePopup()">&times;</span>
             <div class="account_content">
                 <ul>
-                    <?php //print_r($_SESSION);
-                if (isset($_SESSION['fname'])): ?>
-                    <li><a href="#"><?php echo $_SESSION['fname']; ?></a></li>
-                    <li><a href="./Admin/logout.php">Logout</a></li>
+                    <?php print_r($_SESSION['user_name']);
+                if (isset($_SESSION['user_name'])): ?>
+                    <li><a href="#"><?php echo $_SESSION['user_name']; ?></a></li>
+                    <li><a href="../Admin/logout.php">Logout</a></li>
                     <?php else: ?>
                     <li><a href="sign_in.php">Sign In</a></li>
                     <li><a href="sign_up.php">Sign Up</a></li>
