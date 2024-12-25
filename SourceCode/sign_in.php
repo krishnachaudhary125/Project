@@ -1,6 +1,6 @@
 <?php
 include "header.php";
-include "./Database/connection.php";
+include "../Database/connection.php";
 
 if (isset($_POST['submit']) == true) {
     $email = $_POST['email'];
