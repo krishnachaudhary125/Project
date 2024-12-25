@@ -22,7 +22,7 @@ session_start();
         <div class="nav-bar">
             <form class="search-bar">
                 <input type="text" placeholder="Search" name="search">
-                <button type="submit"><img src="Photos/search.png" alt=""></button>
+                <button type="submit"><img src="../Photos/search.png" alt=""></button>
             </form>
             <ul>
                 <li><a href="index.php">Home</a></li>
