@@ -46,7 +46,7 @@ header {
 }
 
 .main-container {
-    height: calc(100vh - 100px);
+    height: 100%;
     width: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -139,6 +139,10 @@ header {
 .nav-bar a:hover {
     font-size: 20px;
     transition: 0.3s;
+}
+
+.profile-icon {
+    width: 35px;
 }
 
 .popup {
@@ -342,12 +346,16 @@ header {
     margin: 15px auto;
     max-width: 30%;
     text-align: center;
-    height: 800px;
+    height: 100%;
     border-radius: 30px;
 }
 
 .sign-up-form {
     padding: 20px 0;
+}
+
+.error-msg {
+    color: red;
 }
 
 .sign-up-field {
@@ -376,6 +384,7 @@ header {
     border: none;
     padding: 20px;
     margin-bottom: 30px;
+    cursor: pointer;
 }
 
 .sign-up-form button:hover {
@@ -395,12 +404,6 @@ header {
 
 .sign-up-a a:hover {
     text-decoration: underline;
-}
-
-span {
-    color: red;
-    font-weight: normal;
-    text-align: left;
 }
 
 /* Sign Up End */
