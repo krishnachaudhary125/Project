@@ -128,6 +128,86 @@ function myFunction() {
 function closeFunction() {
     document.getElementById("addAdminPopup").style.display = "none";
 };
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const formEle = document.add_admin_popup,
+        fname = formEle.adminName,
+        phone = formEle.adminPhone,
+        email = formEle.adminEmail,
+        psw = formEle.adminPsw,
+        cpsw = formEle.adminCpsw;
+
+    formEle.addEventListener("submit", (e) => {
+        let isValid = true;
+
+        // Function to clear errors
+        const clearError = (field) => {
+            const errorSpan = field.nextElementSibling;
+            if (errorSpan) {
+                errorSpan.innerText = "";
+            }
+        };
+
+        // Function to set error message
+        const setError = (field, message) => {
+            const errorSpan = field.nextElementSibling;
+            if (errorSpan) {
+                errorSpan.innerText = message;
+            }
+            isValid = false;
+        };
+
+        // Full name validation
+        if (!/^[A-Z][a-z]+(?: [A-Z][a-z]+)+$/.test(fname.value)) {
+            setError(fname, "Full Name must start with capital letters and include a surname.");
+        } else {
+            clearError(fname);
+        }
+
+        // Phone validation (example for a specific format like starting with '98')
+        if (phone.value !== "" && !/^98\d{8}$/.test(phone.value)) {
+            setError(phone, "Phone number must be 10 digits and start with 98.");
+        } else {
+            clearError(phone);
+        }
+
+        // Email validation
+        if (!/^[\w-]+@([\w-]+\.)+[\w]{2,3}$/.test(email.value)) {
+            setError(email, "Invalid email format.");
+        } else {
+            clearError(email);
+        }
+
+        // Password validation
+        if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(psw.value)) {
+            setError(psw,
+                "Password must be at least 8 characters long and contain one uppercase, one number, and one symbol."
+            );
+        } else {
+            clearError(psw);
+        }
+
+        // Confirm password validation
+        if (psw.value !== cpsw.value) {
+            setError(cpsw, "Passwords do not match.");
+        } else {
+            clearError(cpsw);
+        }
+
+        if (!isValid) {
+            e.preventDefault();
+        }
+    });
+
+    // Add span elements for error messages dynamically
+    document.querySelectorAll(".add-admin-field").forEach(field => {
+        let span = document.createElement("span");
+        span.style.color = "red";
+        span.style.fontSize = "12px";
+        field.appendChild(span);
+    });
+});
 </script>
 <?php
 include 'footer.php';
