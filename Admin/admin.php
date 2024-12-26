@@ -99,10 +99,11 @@ if (isset($_POST['submit'])) {
                         <td class="tdphone"><?php echo $row_data['phone']; ?></td>
                         <td class="tdemail"><?php echo $row_data['email']; ?></td>
                         <td class="tdaction">
-                            <a href="./user_edit.php?id=<?php echo $row_data['id']; ?>" class="btn btn--small">Edit</a>
+                            <a href="./user_edit.php?id=<?php echo $row_data['admin_id']; ?>"
+                                class="btn btn--small">Edit</a>
                         </td>
                         <td class="tdaction">
-                            <a href="./admin_delete.php?id=<?php echo $row_data['id']; ?>"
+                            <a href="./admin_delete.php?id=<?php echo $row_data['admin_id']; ?>"
                                 class="btn btn--danger">Delete</a>
                         </td>
                     </tr>
