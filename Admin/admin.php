@@ -2,6 +2,12 @@
 include 'header.php';
 include '../Database/connection.php';
 
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    echo "<script>alert('Unauthorized page!');</script>";
+    echo "<script>window.location.href = '../SourceCode/index.php';</script>";
+    exit();
+}
+
 if (isset($_POST['submit'])) {
     $fullname = $_POST['adminName'];
     $phone = $_POST['adminPhone'];

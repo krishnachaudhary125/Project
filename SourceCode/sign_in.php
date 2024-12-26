@@ -8,9 +8,9 @@ if (isset($_POST['submit']) == true) {
     $pswHash = sha1($psw);
 
     $sql = "
-        SELECT fullname, role FROM users WHERE email='$email' AND password='$pswHash'
+        SELECT fullname, role FROM users WHERE email='$email' && password='$pswHash'
         UNION
-        SELECT fullname, role FROM admin WHERE email='$email' AND password='$pswHash'
+        SELECT fullname, role FROM admin WHERE email='$email' && password='$pswHash'
     ";
     
     $result = mysqli_query($conn, $sql);
