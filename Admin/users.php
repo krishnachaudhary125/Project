@@ -5,12 +5,6 @@ include '../Database/connection.php';
 <div class="dashboard-body">
     <div class="users-header">
         <h1 class="users-title">Users</h1>
-        <div class="search-user-bar">
-            <input type="text" placeholder="Search">
-            <div class="search-user">
-                <img src="./image/search.png" class="search-icon" alt="search-icon">
-            </div>
-        </div>
     </div>
 
     <div class="users-body">

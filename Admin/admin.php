@@ -70,12 +70,6 @@ if (isset($_POST['submit'])) {
 <div class="dashboard-body">
     <div class="admin-header">
         <h1 class="admin-title">Admin</h1>
-        <div class="search-admin-bar">
-            <input type="text" placeholder="Search">
-            <div class="search-admin">
-                <img src="./image/search.png" class="search-icon" alt="search-icon">
-            </div>
-        </div>
         <button type="submit" class="admin-popup-button" onclick="myFunction()">Add Admin</button>
     </div>
 

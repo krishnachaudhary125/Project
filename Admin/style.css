@@ -234,47 +234,6 @@ span {
     border-bottom: 2px solid rgba(0, 20, 151, 0.59);
 }
 
-.search-game-bar,
-.search-category-bar,
-.search-user-bar,
-.search-admin-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.search-game-bar input,
-.search-category-bar input,
-.search-user-bar input,
-.search-admin-bar input {
-    width: 250px;
-    height: 37px;
-    border-radius: 50px 0 0 50px;
-    background-color: #ededed;
-    padding: 0 20px;
-    font-size: 15px;
-    outline: none;
-    border: none;
-}
-
-.search-game,
-.search-category,
-.search-user,
-.search-admin {
-    width: 50px;
-    height: 37px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0px 50px 50px 0px;
-    background-color: #0c007d;
-    cursor: pointer;
-}
-
-.search-icon {
-    height: 30px;
-}
-
 .category-popup-button,
 .admin-popup-button,
 .game-popup-button {
