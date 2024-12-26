@@ -18,7 +18,7 @@ include '../Database/connection.php';
             <h2 class="topic">No. of Admin</h2>
         </div>
 
-        <img src="./image/admin.png" alt="Admin Icon">
+        <img src="../Photos/admin.png" alt="Admin Icon">
     </div>
 
     <div class="box box2">
@@ -36,7 +36,7 @@ include '../Database/connection.php';
             <h2 class="topic">No. of Users</h2>
         </div>
 
-        <img src="./image/user.png" alt="User Icon">
+        <img src="../Photos/user.png" alt="User Icon">
     </div>
 
     <div class="box box3">
@@ -54,7 +54,7 @@ include '../Database/connection.php';
             <h2 class="topic">No. of Category</h2>
         </div>
 
-        <img src="./image/category.png" alt="Game Icon">
+        <img src="../Photos/category.png" alt="Game Icon">
     </div>
 </div>
 
@@ -74,7 +74,7 @@ include '../Database/connection.php';
             <h2 class="topic">No. of Games</h2>
         </div>
 
-        <img src="./image/game.png" alt="Game Icon">
+        <img src="../Photos/game.png" alt="Game Icon">
     </div>
 
     <div class="box box5">
@@ -83,7 +83,7 @@ include '../Database/connection.php';
             <h2 class="topic">Total Revenue</h2>
         </div>
 
-        <img src="./image/revenue.png" alt="Revenue Icon">
+        <img src="../Photos/revenue.png" alt="Revenue Icon">
     </div>
 </div>
 <?php
