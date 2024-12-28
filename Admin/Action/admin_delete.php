@@ -4,7 +4,7 @@ include '../../Database/connection.php';
 
 if (isset($_GET['id'])) {
 
-    $admin_id = intval($_GET['id']); 
+    $admin_id = $_GET['id']; 
 
     $logged_in_admin_id = $_SESSION['admin_id'] ?? null;
 
