@@ -97,7 +97,7 @@ if (isset($_POST['submit'])) {
                         </td>
                         <td class="tdaction">
                             <a href="./Action/category_delete.php?id=<?php echo $row_data['category_id']; ?>"
-                                class="btn btn--danger">Delete</a>
+                                class="btn btn--danger" onclick="return confirmDelete();">Delete</a>
                         </td>
                     </tr>
                     <?php endwhile; ?>
@@ -107,6 +107,10 @@ if (isset($_POST['submit'])) {
     </div>
 </div>
 <script>
+function confirmDelete() {
+    return confirm("You want to delete this category?");
+}
+
 function myFunction() {
     document.getElementById("categoryPopup").style.display = "block";
 };
