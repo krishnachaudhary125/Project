@@ -121,6 +121,10 @@ if (isset($_POST['submit'])) {
 </div>
 
 <script>
+function confirmDelete() {
+    return confirm("You want to delete this admin?");
+};
+
 function myFunction() {
     document.getElementById("addAdminPopup").style.display = "block";
 };
