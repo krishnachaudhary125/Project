@@ -109,8 +109,8 @@ if (isset($_POST['submit'])) {
                                 class="btn btn--small">Edit</a>
                         </td>
                         <td class="tdaction">
-                            <a href="./admin_delete.php?id=<?php echo $row_data['admin_id']; ?>"
-                                class="btn btn--danger">Delete</a>
+                            <a href="./admin_delete.php?id=<?php echo $row_data['admin_id']; ?>" class="btn btn--danger"
+                                onclick="return confirmDelete();">Delete</a>
                         </td>
                     </tr>
                     <?php endwhile; ?>

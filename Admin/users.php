@@ -40,8 +40,8 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
                         <td class="tdphone"><?php echo $row_data['phone']; ?></td>
                         <td class="tdemail"><?php echo $row_data['email']; ?></td>
                         <td class="tdaction">
-                            <a href="./user_delete.php?id=<?php echo $row_data['user_id']; ?>"
-                                class="btn btn--danger">Delete</a>
+                            <a href="./Action/user_delete.php?id=<?php echo $row_data['user_id']; ?>"
+                                class="btn btn--danger" onclick="return confirmDelete();">Delete</a>
                         </td>
                     </tr>
                     <?php endwhile; ?>
@@ -50,6 +50,11 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
         </div>
     </div>
 </div>
+<script>
+function confirmDelete() {
+    return confirm("Are you sure, you want to delete this user?");
+}
+</script>
 
 
 <?php
