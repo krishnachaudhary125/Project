@@ -53,7 +53,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 <script>
 function confirmDelete() {
     return confirm("Are you sure, you want to delete this user?");
-}
+};
 </script>
 
 

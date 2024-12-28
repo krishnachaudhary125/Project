@@ -109,7 +109,7 @@ if (isset($_POST['submit'])) {
 <script>
 function confirmDelete() {
     return confirm("You want to delete this category?");
-}
+};
 
 function myFunction() {
     document.getElementById("categoryPopup").style.display = "block";
