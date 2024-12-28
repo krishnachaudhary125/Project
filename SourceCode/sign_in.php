@@ -8,9 +8,9 @@ if (isset($_POST['submit']) == true) {
     $pswHash = sha1($psw);
 
     $sql = "
-        SELECT fullname, role FROM users WHERE email='$email' && password='$pswHash'
+        SELECT user_id, fullname, role FROM users WHERE email='$email' && password='$pswHash'
         UNION
-        SELECT fullname, role FROM admin WHERE email='$email' && password='$pswHash'
+        SELECT admin_id, fullname, role FROM admin WHERE email='$email' && password='$pswHash'
     ";
     
     $result = mysqli_query($conn, $sql);
@@ -24,10 +24,12 @@ if (isset($_POST['submit']) == true) {
 
         if ($row['role'] == 'admin') {
             $_SESSION['role'] = 'admin';
+            $_SESSION['admin_id'] = $row['admin_id'];
             $_SESSION['admin_name'] = $row['fullname'];
             header('location: ../Admin/admin_panel.php?dashboard');
         } elseif ($row['role'] == 'user') {
             $_SESSION['role'] = 'user';
+            $_SESSION['user_id'] = $row['user_id'];
             $_SESSION['user_name'] = $row['fullname'];
             header('location:index.php');
         }
