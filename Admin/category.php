@@ -7,6 +7,38 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     echo "<script>window.location.href = '../SourceCode/index.php';</script>";
     exit();
 }
+
+if (isset($_POST['submit'])) {
+    $category = mysqli_real_escape_string($conn, $_POST['categoryInput']);
+
+    $select_query = "SELECT * FROM category WHERE category_name = ?";
+    $stmt = $conn->prepare($select_query);
+    if ($stmt === false) {
+        die("Prepare failed: " . $conn->error);
+    }
+    $stmt->bind_param("s", $category);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        echo "<script>alert('This category already exists.')</script>";
+    } else {
+        $sqlQuery = "INSERT INTO category (category_name) VALUES (?)";
+        $stmt = $conn->prepare($sqlQuery);
+        if ($stmt === false) {
+            die("Prepare failed: " . $conn->error);
+        }
+        $stmt->bind_param("s", $category);
+
+        if ($stmt->execute()) {
+            echo "<script>alert('Category added successfully.')</script>";
+        } else {
+            echo "<script>alert('Error adding category.')</script>";
+        }
+    }
+    $stmt->close();
+}
+
 ?>
 
 <div class="popup" id="categoryPopup">
@@ -47,6 +79,29 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
                         <th class="thaction" colspan="2">Actions</th>
                     </tr>
                 </thead>
+
+                <?php
+                $i = 0;
+                $select_category = "SELECT * from category";
+                $category_select = mysqli_query($conn, $select_category);
+                while ($row_data = mysqli_fetch_assoc($category_select)):
+                    $i++;
+                ?>
+                <tbody>
+                    <tr>
+                        <td class="tdsno"><?php echo $i . '.'; ?></td>
+                        <td class="tdname"><?php echo $row_data['category_name']; ?></td>
+                        <td class="tdaction">
+                            <a href="./category_edit.php?id=<?php echo $row_data['category_id']; ?>"
+                                class="btn btn--small">Edit</a>
+                        </td>
+                        <td class="tdaction">
+                            <a href="./category_delete.php?id=<?php echo $row_data['category_id']; ?>"
+                                class="btn btn--danger">Delete</a>
+                        </td>
+                    </tr>
+                    <?php endwhile; ?>
+                </tbody>
             </table>
         </div>
     </div>
