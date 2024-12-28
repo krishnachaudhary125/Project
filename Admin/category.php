@@ -96,7 +96,7 @@ if (isset($_POST['submit'])) {
                                 class="btn btn--small">Edit</a>
                         </td>
                         <td class="tdaction">
-                            <a href="./category_delete.php?id=<?php echo $row_data['category_id']; ?>"
+                            <a href="./Action/category_delete.php?id=<?php echo $row_data['category_id']; ?>"
                                 class="btn btn--danger">Delete</a>
                         </td>
                     </tr>
