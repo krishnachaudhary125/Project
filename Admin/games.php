@@ -1,6 +1,45 @@
 <?php
 include 'header.php';
 include '../Database/connection.php';
+
+if (isset($_POST['submit'])) {
+    
+    $gameName = $_POST['game_name'];
+    $gameDeveloper = $_POST['game_developer'];
+    $description = $_POST['description'];
+    $gameCategory = $_POST['category_id'];
+    $releaseDate = $_POST['release_date'];
+    $gamePrice = $_POST['game_price'];
+
+    $gamePhoto = $_FILES['game_photo']['name'];
+    $gamePhotoTemp = $_FILES['game_photo']['tmp_name'];
+    $gameVideo = $_FILES['game_video']['name'];
+    $gameVideoTemp = $_FILES['game_video']['tmp_name'];
+
+    $photoPath = "../Database/uploads/photos/" . basename($gamePhoto);
+    $videoPath = "../Database/uploads/videos/" . basename($gameVideo);
+
+    move_uploaded_file($gamePhotoTemp, $photoPath);
+    move_uploaded_file($gameVideoTemp, $videoPath);
+
+    $checkQuery = "SELECT * FROM games WHERE game_name = '$gameName' AND game_developer = '$gameDeveloper'";
+    $result = $conn->query($checkQuery);
+
+    if ($result->num_rows > 0) {
+        
+        echo "<script>alert('This game is already added try adding other games.')</script>";
+    } else {
+        
+        $sql = "INSERT INTO games (game_name, game_developer, description, category_id, release_date, game_price, game_photo, game_video) 
+                VALUES ('$gameName', '$gameDeveloper', '$description', '$gameCategory', '$releaseDate', '$gamePrice', '$photoPath', '$videoPath')";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "<script>alert('New game added successfully.')</script>";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    }
+}
 ?>
 
 
@@ -82,6 +121,40 @@ include '../Database/connection.php';
                         <th class="thaction" colspan="2">Actions</th>
                     </tr>
                 </thead>
+                <tbody>
+                    <?php
+                    $i = 0;
+                    $games = "SELECT g.*, c.category_name 
+                    FROM games g
+                    INNER JOIN category c ON g.category_id = c.category_id";
+                    $select = mysqli_query($conn, $games);
+                    while ($row = mysqli_fetch_assoc($select)):
+                        $i++;
+                    ?>
+                    <tr>
+                        <td class="tdsno"><?php echo $i . '.'; ?></td>
+                        <td class="tdphoto">
+                            <?php
+                        if (!empty($row['game_photo'])) {
+                            echo '<img src="' . $row['game_photo'] . '" alt="Game Photo" class="game_photo">';
+                        }
+                        ?>
+                        </td>
+                        <td class="tdgamename"><?php echo $row['game_name']; ?></td>
+                        <td class="tddeveloper"><?php echo $row['game_developer']; ?></td>
+                        <td class="tdcategory"><?php echo $row['category_name']; ?></td>
+                        <td class="tdreleasedate">
+                            <?php
+                            if (!empty($row['release_date'])) {
+                                $formattedDate = date("M d, Y", strtotime($row['release_date']));
+                                echo $formattedDate;
+                            }
+                        ?>
+                        </td>
+                        <td class="tdgameprice"><?php echo $row['game_price']; ?></td>
+                    </tr>
+                    <?php endwhile; ?>
+                </tbody>
             </table>
         </div>
     </div>
