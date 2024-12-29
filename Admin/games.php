@@ -8,6 +8,34 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     exit();
 }
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $game_name = $_POST['gname'];
+    $developer = $_POST['developer'];
+    $description = $_POST['gameDescription'];
+    $category = $_POST['gameCategory'];
+    $release_date = $_POST['releaseDate'];
+    $game_price = $_POST['gamePrice'];
+
+    $photo = $_FILES['photo']['name'];
+    $video = $_FILES['video']['name'];
+
+    move_uploaded_file($_FILES['photo']['tmp_name'], "../Database/uploads/photos/" . $photo);
+    move_uploaded_file($_FILES['video']['tmp_name'], "../Database/uploads/videos/" . $video);
+
+    $sql = "INSERT INTO games (game_name, game_developer, game_description, category_id, release_date, game_price, photo, video) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssssdsss", $game_name, $developer, $description, $category, $release_date, $game_price, $photo, $video);
+
+    if ($stmt->execute()) {
+        echo '<script>alert("New game added successfully!")</script>';
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+}
+
+
 ?>
 
 
@@ -44,11 +72,11 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
                     </select>
                 </div>
                 <div class="add-game-field">
-                    <input type="text" id="gamePrice" name="gamePrice" value="" placeholder="Game Price">
-                </div>
-                <div class="add-game-field">
                     <label for="date">Release Date</label>
                     <input type="date" id="date" name="releaseDate" value="">
+                </div>
+                <div class="add-game-field">
+                    <input type="text" id="gamePrice" name="gamePrice" value="" placeholder="Game Price">
                 </div>
                 <div class="add-game-field">
                     <label for="photo">Photo</label>
