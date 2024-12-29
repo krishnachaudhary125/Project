@@ -11,12 +11,13 @@ include '../Database/connection.php';
             <span class="close-btn" onclick="closeFunction()">&times;</span>
         </div>
         <div class="game-popup-body">
-            <form action="" method="post" name="add_game_popup" enctype="multipart/form-data">
+            <form action="" method="post" name="add_game_popup" enctype="multipart/form-data"
+                onsubmit="return validateForm()">
                 <div class="add-game-field">
-                    <input type="text" id="game_name" name="game_name" value="" placeholder="Game Name">
+                    <input type="text" id="game_name" name="game_name" placeholder="Game Name">
                 </div>
                 <div class="add-game-field">
-                    <input type="text" id="game_developer" name="game_developer" value="" placeholder="Developer">
+                    <input type="text" id="game_developer" name="game_developer" placeholder="Developer">
                 </div>
                 <div class="add-game-field">
                     <textarea name="description" id="description" placeholder="Description"></textarea>
@@ -37,10 +38,10 @@ include '../Database/connection.php';
                 </div>
                 <div class="add-game-field">
                     <label for="release_date">Release Date</label>
-                    <input type="date" id="release_date" name="release_date" value="">
+                    <input type="date" id="release_date" name="release_date">
                 </div>
                 <div class="add-game-field">
-                    <input type="text" id="game_price" name="game_price" value="" placeholder="Game Price">
+                    <input type="text" id="game_price" name="game_price" placeholder="Game Price">
                 </div>
                 <div class="add-game-field">
                     <label for="game_photo">Photo</label>
@@ -51,7 +52,7 @@ include '../Database/connection.php';
                     <input type="file" name="game_video" id="game_video" accept="video/*">
                 </div>
                 <div class="add-game-button">
-                    <button type="submit" onclick="submitGame()" name="submit">Submit</button>
+                    <button type="submit" name="submit">Submit</button>
                 </div>
             </form>
         </div>
@@ -94,6 +95,71 @@ function myFunction() {
 function closeFunction() {
     document.getElementById("addGamePopup").style.display = "none";
 };
+
+function validateForm() {
+    let isValid = true;
+
+    const gameName = document.getElementById('game_name').value.trim();
+    const gameDeveloper = document.getElementById('game_developer').value.trim();
+    const description = document.getElementById('description').value.trim();
+    const gameCategory = document.getElementById('game_category').value;
+    const releaseDate = document.getElementById('release_date').value;
+    const gamePrice = document.getElementById('game_price').value.trim();
+    const gamePhoto = document.getElementById('game_photo').value;
+    const gameVideo = document.getElementById('game_video').value;
+
+    clearErrors();
+
+    if (gameName === '') {
+        displayError('game_name', 'Game name is required.');
+        isValid = false;
+    }
+    if (gameDeveloper === '') {
+        displayError('game_developer', 'Developer is required.');
+        isValid = false;
+    }
+    if (description === '') {
+        displayError('description', 'Description is required.');
+        isValid = false;
+    }
+    if (gameCategory === '') {
+        displayError('game_category', 'Please select a category.');
+        isValid = false;
+    }
+    if (releaseDate === '') {
+        displayError('release_date', 'Release date is required.');
+        isValid = false;
+    }
+    if (gamePrice === '' || isNaN(gamePrice) || parseFloat(gamePrice) <= 0) {
+        displayError('game_price', 'Please enter a valid price.');
+        isValid = false;
+    }
+    if (gamePhoto === '') {
+        displayError('game_photo', 'Please upload a photo.');
+        isValid = false;
+    }
+    if (gameVideo === '') {
+        displayError('game_video', 'Please upload a video.');
+        isValid = false;
+    }
+
+    return isValid;
+}
+
+function displayError(fieldId, message) {
+
+    const errorSpan = document.createElement('span');
+    errorSpan.classList.add('error-message');
+    errorSpan.innerText = message;
+
+    const field = document.getElementById(fieldId).parentNode;
+    field.appendChild(errorSpan);
+}
+
+function clearErrors() {
+    const errorSpans = document.querySelectorAll('.error-message');
+    errorSpans.forEach(span => span.remove());
+}
 </script>
 
 <?php
