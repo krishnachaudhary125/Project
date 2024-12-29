@@ -54,6 +54,12 @@ function gamesByCategory(){
         $category_id=$_GET['category_id'];
 $select_game = "SELECT * FROM games INNER JOIN category ON games.category_id=category.category_id where games.category_id=$category_id";
 $game_select = mysqli_query($conn, $select_game);
+
+$num_rows = mysqli_num_rows($game_select);
+if($num_rows==0){
+    echo '<h2 style="color: red; text-align: center; display: flex; justify-content: center; padding: 88px 0;">Games with this category not available.</h2>';
+}
+
 while ($row_data = mysqli_fetch_assoc($game_select)):
 ?>
 <div class="game-container">

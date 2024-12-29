@@ -7,7 +7,7 @@ if (isset($_POST['submit'])) {
     $gameName = $_POST['game_name'];
     $gameDeveloper = $_POST['game_developer'];
     $description = $_POST['description'];
-    $gameCategory = $_POST['category_id'];
+    $gameCategory = $_POST['game_category'];
     $releaseDate = $_POST['release_date'];
     $gamePrice = $_POST['game_price'];
 
@@ -26,19 +26,24 @@ if (isset($_POST['submit'])) {
     $result = $conn->query($checkQuery);
 
     if ($result->num_rows > 0) {
-        
-        echo "<script>alert('This game is already added try adding other games.')</script>";
+        echo "<script>alert('This game is already added. Try adding other games.')</script>";
     } else {
-        
-        $sql = "INSERT INTO games (game_name, game_developer, description, category_id, release_date, game_price, game_photo, game_video) 
-                VALUES ('$gameName', '$gameDeveloper', '$description', '$gameCategory', '$releaseDate', '$gamePrice', '$photoPath', '$videoPath')";
 
-        if ($conn->query($sql) === TRUE) {
+        $stmt = $conn->prepare("INSERT INTO games (game_name, game_developer, description, category_id, release_date, game_price, game_photo, game_video) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    
+
+        $stmt->bind_param("ssssssss", $gameName, $gameDeveloper, $description, $gameCategory, $releaseDate, $gamePrice, $photoPath, $videoPath);
+    
+
+        if ($stmt->execute()) {
             echo "<script>alert('New game added successfully.')</script>";
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo "Error: " . $stmt->error;
         }
+    
+        $stmt->close();
     }
+    
 }
 ?>
 
