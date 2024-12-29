@@ -1,41 +1,6 @@
 <?php
 include 'header.php';
 include '../Database/connection.php';
-
-if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-    echo "<script>alert('Unauthorized page!');</script>";
-    echo "<script>window.location.href = '../SourceCode/index.php';</script>";
-    exit();
-}
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $game_name = $_POST['gname'];
-    $developer = $_POST['developer'];
-    $description = $_POST['gameDescription'];
-    $category = $_POST['gameCategory'];
-    $release_date = $_POST['releaseDate'];
-    $game_price = $_POST['gamePrice'];
-
-    $photo = $_FILES['photo']['name'];
-    $video = $_FILES['video']['name'];
-
-    move_uploaded_file($_FILES['photo']['tmp_name'], "../Database/uploads/photos/" . $photo);
-    move_uploaded_file($_FILES['video']['tmp_name'], "../Database/uploads/videos/" . $video);
-
-    $sql = "INSERT INTO games (game_name, game_developer, game_description, category_id, release_date, game_price, photo, video) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssdsss", $game_name, $developer, $description, $category, $release_date, $game_price, $photo, $video);
-
-    if ($stmt->execute()) {
-        echo '<script>alert("New game added successfully!")</script>';
-    } else {
-        echo "Error: " . $stmt->error;
-    }
-}
-
-
 ?>
 
 
@@ -48,16 +13,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="game-popup-body">
             <form action="" method="post" name="add_game_popup" enctype="multipart/form-data">
                 <div class="add-game-field">
-                    <input type="text" id="gname" name="gname" value="" placeholder="Game Name">
+                    <input type="text" id="game_name" name="game_name" value="" placeholder="Game Name">
                 </div>
                 <div class="add-game-field">
-                    <input type="text" id="developer" name="developer" value="" placeholder="Developer">
+                    <input type="text" id="game_developer" name="game_developer" value="" placeholder="Developer">
                 </div>
                 <div class="add-game-field">
-                    <textarea name="gameDescription" id="gameDescription" placeholder="Description"></textarea>
+                    <textarea name="description" id="description" placeholder="Description"></textarea>
                 </div>
                 <div class="add-game-field">
-                    <select name="gameCategory" id="gameCategory">
+                    <select name="game_category" id="game_category">
                         <option value="" disabled selected hidden>Select Category</option>
                         <?php
                         $select_category = "SELECT * from category";
@@ -68,23 +33,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <?php echo $row_data['category_name']; ?>
                         </option>
                         <?php endwhile; ?>
-
                     </select>
                 </div>
                 <div class="add-game-field">
-                    <label for="date">Release Date</label>
-                    <input type="date" id="date" name="releaseDate" value="">
+                    <label for="release_date">Release Date</label>
+                    <input type="date" id="release_date" name="release_date" value="">
                 </div>
                 <div class="add-game-field">
-                    <input type="text" id="gamePrice" name="gamePrice" value="" placeholder="Game Price">
+                    <input type="text" id="game_price" name="game_price" value="" placeholder="Game Price">
                 </div>
                 <div class="add-game-field">
-                    <label for="photo">Photo</label>
-                    <input type="file" id="photo" name="photo" accept="image/*">
+                    <label for="game_photo">Photo</label>
+                    <input type="file" id="game_photo" name="game_photo" accept="image/*">
                 </div>
                 <div class="add-game-field">
-                    <label for="video">Video</label>
-                    <input type="file" name="video" id="video" accept="video/*">
+                    <label for="game_video">Video</label>
+                    <input type="file" name="game_video" id="game_video" accept="video/*">
                 </div>
                 <div class="add-game-button">
                     <button type="submit" onclick="submitGame()" name="submit">Submit</button>
@@ -117,7 +81,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <th class="thaction" colspan="2">Actions</th>
                     </tr>
                 </thead>
-
             </table>
         </div>
     </div>
