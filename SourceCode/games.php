@@ -1,7 +1,7 @@
 <?php
 include "header.php";
-include "/Project/Database/connection.php";
-include "./Functions/game_function.php";
+include "../Database/connection.php";
+include "../Function/game_function.php";
 ?>
 <div class="category-container">
     <div class="category-slider">
@@ -14,7 +14,7 @@ include "./Functions/game_function.php";
                 while ($row_data = mysqli_fetch_assoc($category_select)):
                 ?>
                 <a href="games.php?category_id=<?php echo $row_data['category_id']; ?>" class="category">
-                    <div><?php echo $row_data['category']; ?></div>
+                    <div><?php echo $row_data['category_name']; ?></div>
                 </a>
                 <?php endwhile; ?>
 
