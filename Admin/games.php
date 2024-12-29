@@ -31,6 +31,15 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
                 <div class="add-game-field">
                     <select name="gameCategory" id="gameCategory">
                         <option value="" disabled selected hidden>Select Category</option>
+                        <?php
+                        $select_category = "SELECT * from category";
+                        $category_select = mysqli_query($conn, $select_category);
+                        while ($row_data = mysqli_fetch_assoc($category_select)):
+                        ?>
+                        <option value="<?php echo $row_data['category_id']; ?>">
+                            <?php echo $row_data['category_name']; ?>
+                        </option>
+                        <?php endwhile; ?>
 
                     </select>
                 </div>
