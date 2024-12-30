@@ -141,7 +141,8 @@ header {
     transition: 0.3s;
 }
 
-.profile-icon {
+.profile-icon,
+.cart-icon {
     width: 35px;
 }
 
