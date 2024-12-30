@@ -41,7 +41,7 @@ while ($row_data = mysqli_fetch_assoc($game_select)):
         </div>
         <div class="game-cart">
             <div class="cost"><?php echo 'Npr  ' . $row_data['game_price']; ?></div>
-            <button>Add to Cart</button>
+            <a href="games.php?add_to_cart=<?php echo $row_data['game_id']; ?>"><button>Add to Cart</button></a>
         </div>
     </div>
 </div>
@@ -95,7 +95,7 @@ while ($row_data = mysqli_fetch_assoc($game_select)):
         </div>
         <div class="game-cart">
             <div class="cost"><?php echo 'Npr  ' . $row_data['game_price']; ?></div>
-            <button>Add to Cart</button>
+            <a href="games.php?add_to_cart=<?php echo $row_data['game_id']; ?>"><button>Add to Cart</button></a>
         </div>
     </div>
 </div>
@@ -148,7 +148,7 @@ while ($row_data = mysqli_fetch_assoc($game_select)):
         </div>
         <div class="game-cart">
             <div class="cost"><?php echo 'Npr  ' . $row_data['game_price']; ?></div>
-            <button>Add to Cart</button>
+            <a href="games.php?add_to_cart=<?php echo $row_data['game_id']; ?>"><button>Add to Cart</button></a>
         </div>
     </div>
 </div>

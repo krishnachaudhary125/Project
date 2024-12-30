@@ -701,7 +701,7 @@ footer {
     padding: 5px 9px;
 }
 
-.game-cart button {
+.game-cart a button {
     border: none;
     background-color: rgb(0, 116, 228);
     color: white;
@@ -709,7 +709,7 @@ footer {
     cursor: pointer;
 }
 
-.game-cart button:hover {
+.game-cart a button:hover {
     background: rgb(0, 140, 228);
 }
 
