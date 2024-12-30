@@ -7,7 +7,7 @@ include "../Database/connection.php";
 function games(){
     global $conn;
     if(!isset($_GET['category_id'])){
-$select_game = "SELECT * FROM games INNER JOIN category ON games.category_id=category.category_id ORDER BY RAND()";
+$select_game = "SELECT * FROM games INNER JOIN category ON games.category_id=category.category_id ";
 $game_select = mysqli_query($conn, $select_game);
 while ($row_data = mysqli_fetch_assoc($game_select)):
 ?>
@@ -155,5 +155,38 @@ while ($row_data = mysqli_fetch_assoc($game_select)):
 <?php
 endwhile; 
 }
+}
+
+// Adding games in cart
+function cart(){
+    global $conn;
+    if (isset($_GET['add_to_cart'])) {
+        if (!isset($_SESSION['user_id'])) {
+            echo "<script>alert('You need to sign in to add a game to the cart.');</script>";
+            echo "<script>window.location.href = 'sign_in.php';</script>";
+            exit(); 
+        }
+
+        $get_game_id = $_GET['add_to_cart'];
+        $user_id = $_SESSION['user_id'];
+
+        $check_cart_query = "SELECT * FROM cart WHERE user_id = '$user_id' AND game_id = '$get_game_id'";
+        $check_cart_result = mysqli_query($conn, $check_cart_query);
+
+        if (mysqli_num_rows($check_cart_result) > 0) {
+            echo "<script>alert('Game is already in the cart!');</script>";
+        } else {
+
+            $add_to_cart_query = "INSERT INTO cart (user_id, game_id) VALUES ('$user_id', '$get_game_id')";
+            $add_to_cart_result = mysqli_query($conn, $add_to_cart_query);
+
+            if ($add_to_cart_result) {
+                echo "<script>alert('Game added to cart successfully!');</script>";
+                echo "<script>window.location.href = 'games.php';</script>";
+            } else {
+                echo "<script>alert('Failed to add game to cart. Please try again.');</script>";
+            }
+        }
+    }
 }
 ?>

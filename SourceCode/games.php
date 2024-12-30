@@ -27,6 +27,7 @@ include "../Function/game_function.php";
 <?php
 games();
 gamesByCategory();
+cart();
 ?>
 
 <script>
