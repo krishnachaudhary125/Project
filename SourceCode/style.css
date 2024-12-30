@@ -714,3 +714,107 @@ footer {
 }
 
 /* Games Ends */
+
+
+/* Cart Start*/
+
+.games-main {
+    min-height: 300px;
+    max-width: 900px;
+    margin: 35px auto;
+    background-color: #ffffff;
+    border-radius: 30px;
+    box-shadow: 3px 3px 10px rgb(188, 188, 188);
+    padding: 0px 20px 20px 20px;
+}
+
+.games-header {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0px 10px 0px;
+    border-bottom: 2px solid rgba(0, 20, 151, 0.59);
+}
+
+.games-title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    color: #5500cb;
+}
+
+.game-cart-body {
+    max-width: 1160px;
+    overflow-x: auto;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+}
+
+th,
+td {
+    text-align: start;
+    padding: 0px 65px 11px 0px;
+}
+
+.thsno,
+.thaction,
+.thphoto,
+.th_game_price,
+.tdsno,
+.tdaction,
+.tdgameprice {
+    text-align: center;
+}
+
+.checkout {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.checkout button:hover {
+    background-color: #690fe6;
+}
+
+.checkout p {
+    padding-right: 50px;
+    text-align: center;
+    font-size: 23px;
+    font-weight: 600;
+    color: #5500cb;
+}
+
+.remove {
+    height: 35px;
+    width: 110px;
+    border-radius: 8px;
+    background-color: #5500cb;
+    color: white;
+    font-size: 15px;
+    border: none;
+    margin-right: 45px;
+    cursor: pointer;
+}
+
+.check-out {
+    height: 35px;
+    width: 110px;
+    border-radius: 8px;
+    background-color: #5500cb;
+    color: white;
+    font-size: 15px;
+    border: none;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.games-cart-photo {
+    width: 125px;
+    border-radius: 7px;
+}
+
+/* Cart End */
