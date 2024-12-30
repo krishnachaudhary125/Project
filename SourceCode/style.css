@@ -84,42 +84,41 @@ header {
 }
 
 .search-bar {
-    width: 100%;
-    height: 35px;
-    max-width: 400px;
-    background-color: transparent;
-    border: 3px solid;
     display: flex;
     align-items: center;
-    border-radius: 13px;
+    justify-content: center;
 }
 
-.nav-bar .search-bar input {
-    background: transparent;
-    flex: 1;
-    border: none;
-    outline: none;
-    color: black;
+.search-bar input {
+    width: 250px;
+    height: 37px;
+    border-radius: 50px 0 0 50px;
+    background-color: #ededed;
     padding: 0 20px;
     font-size: 15px;
-    font-weight: bold;
+    outline: none;
+    border: none;
 }
 
-.nav-bar .search-bar input::placeholder {
-    color: black;
-}
-
-.nav-bar .search-bar button img {
-    width: 20px;
-}
-
-.nav-bar .search-bar button {
-    border: 0;
-    border-radius: 50%;
-    width: 35px;
-    padding-right: 10px;
-    background: transparent;
+.search-button {
+    width: 55px;
+    height: 37px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px 50px 50px 0px;
+    background-color: #0c007d;
     cursor: pointer;
+}
+
+.search-button button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.search-icon {
+    height: 27px;
 }
 
 .nav-bar ul {

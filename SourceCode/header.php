@@ -22,13 +22,16 @@ session_start();
         <div class="nav-bar">
             <form class="search-bar">
                 <input type="text" placeholder="Search" name="search">
-                <button type="submit"><img src="../Photos/search.png" alt=""></button>
+                <div class="search-button">
+                    <button type="submit"><img src="../Photos/search.png" class="search-icon"
+                            alt="search-icon"></button>
+                </div>
             </form>
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="games.php">Games</a></li>
                 <li><a href="about_us.php">About Us </a></li>
-                <li><a href="#"><img src="../Photos/cart.png" alt="Cart" class="cart-icon"></a></li>
+                <li><a href="cart.php"><img src="../Photos/cart.png" alt="Cart" class="cart-icon"></a></li>
                 <li><a href="#" onclick="openPopup()"><img src="../Photos/profile.png" alt="Profile Icon"
                             class="profile-icon"></a></li></a></li>
             </ul>
