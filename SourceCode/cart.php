@@ -84,7 +84,7 @@ function remove_from_cart(){
         }
     }
 }
-echo $removed = remove_from_cart();
+remove_from_cart();
 ?>
     </div>
 </div>
