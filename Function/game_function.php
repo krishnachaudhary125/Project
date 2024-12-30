@@ -6,7 +6,7 @@ include "../Database/connection.php";
 function games(){
     global $conn;
     if(!isset($_GET['category_id'])){
-$select_game = "SELECT * FROM games INNER JOIN category ON games.category_id=category.category_id";
+$select_game = "SELECT * FROM games INNER JOIN category ON games.category_id=category.category_id ORDER BY RAND()";
 $game_select = mysqli_query($conn, $select_game);
 while ($row_data = mysqli_fetch_assoc($game_select)):
 ?>
