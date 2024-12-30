@@ -111,6 +111,11 @@ function search_game(){
         $search_game_value = $_GET['search']; 
 $search_query = "SELECT * FROM games INNER JOIN category ON games.category_id=category.category_id WHERE game_keyword LIKE '%$search_game_value%'";
 $game_select = mysqli_query($conn, $search_query);
+
+$num_rows = mysqli_num_rows($game_select);
+if($num_rows==0){
+    echo '<h2 style="color: red; text-align: center; display: flex; justify-content: center; padding: 88px 0;">Games not Available!!</h2>';
+}
 while ($row_data = mysqli_fetch_assoc($game_select)):
 ?>
 <div class="game-container">

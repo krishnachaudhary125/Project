@@ -20,7 +20,7 @@ session_start();
             <a href="index.php" class="logo"><img src="../Photos/logo.png" alt="Logo"></a>
         </div>
         <div class="nav-bar">
-            <form class="search-bar" action="search.php">
+            <form class="search-bar" action="search.php" method="get">
                 <input type="text" placeholder="Search" name="search">
 
                 <button type="submit" value="search" name="search_game">
