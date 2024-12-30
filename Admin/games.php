@@ -10,6 +10,7 @@ if (isset($_POST['submit'])) {
     $gameCategory = $_POST['game_category'];
     $releaseDate = $_POST['release_date'];
     $gamePrice = $_POST['game_price'];
+    $gameKeyword = $_POST['game_keyword'];
 
     $gamePhoto = $_FILES['game_photo']['name'];
     $gamePhotoTemp = $_FILES['game_photo']['tmp_name'];
@@ -29,10 +30,10 @@ if (isset($_POST['submit'])) {
         echo "<script>alert('This game is already added. Try adding other games.')</script>";
     } else {
 
-        $stmt = $conn->prepare("INSERT INTO games (game_name, game_developer, description, category_id, release_date, game_price, game_photo, game_video) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO games (game_name, game_developer, description, category_id, release_date, game_price, game_keyword, game_photo, game_video) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     
 
-        $stmt->bind_param("ssssssss", $gameName, $gameDeveloper, $description, $gameCategory, $releaseDate, $gamePrice, $photoPath, $videoPath);
+        $stmt->bind_param("ssssssss", $gameName, $gameDeveloper, $description, $gameCategory, $releaseDate, $gamePrice, $gameKeyword, $photoPath, $videoPath);
     
 
         if ($stmt->execute()) {
@@ -86,6 +87,9 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="add-game-field">
                     <input type="text" id="game_price" name="game_price" placeholder="Game Price">
+                </div>
+                <div class="add-game-field">
+                    <input type="text" id="game_keyword" name="game_keyword" placeholder="Game Keyword">
                 </div>
                 <div class="add-game-field">
                     <label for="game_photo">Photo</label>
@@ -183,6 +187,7 @@ function validateForm() {
     const gameCategory = document.getElementById('game_category').value;
     const releaseDate = document.getElementById('release_date').value;
     const gamePrice = document.getElementById('game_price').value.trim();
+    const gameKeyword = document.getElementById('game_keyword').value.trim();
     const gamePhoto = document.getElementById('game_photo').value;
     const gameVideo = document.getElementById('game_video').value;
 
@@ -210,6 +215,10 @@ function validateForm() {
     }
     if (gamePrice === '' || isNaN(gamePrice) || parseFloat(gamePrice) <= 0) {
         displayError('game_price', 'Please enter a valid price.');
+        isValid = false;
+    }
+    if (gameKeyword === '') {
+        displayError('game_keyword', 'Please add a keyword.');
         isValid = false;
     }
     if (gamePhoto === '') {

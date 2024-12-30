@@ -20,12 +20,14 @@ session_start();
             <a href="index.php" class="logo"><img src="../Photos/logo.png" alt="Logo"></a>
         </div>
         <div class="nav-bar">
-            <form class="search-bar">
+            <form class="search-bar" action="search.php">
                 <input type="text" placeholder="Search" name="search">
-                <div class="search-button">
-                    <button type="submit"><img src="../Photos/search.png" class="search-icon"
-                            alt="search-icon"></button>
-                </div>
+
+                <button type="submit" value="search" name="search_game">
+                    <div class="search-button">
+                        <img src="../Photos/search.png" class="search-icon" alt="search-icon">
+                    </div>
+                </button>
             </form>
             <ul>
                 <li><a href="index.php">Home</a></li>
