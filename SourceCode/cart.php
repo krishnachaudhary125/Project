@@ -67,7 +67,7 @@ if (!isset($_SESSION['user_id'])) {
         </div>
         <div class="checkout">
             <p>Total Price: <?php echo $total_price; ?></p>
-            <button type="submit" class="check-out" onclick="myFunction()">Check Out</button>
+            <button type="submit" class="check-out" onclick="myFunction()"><a href="checkout.php">Checkout</a></button>
             <button type="submit" class="remove" name="removefromcart">Remove</button>
         </div>
         </form>

@@ -805,11 +805,16 @@ td {
     width: 110px;
     border-radius: 8px;
     background-color: #5500cb;
-    color: white;
-    font-size: 15px;
     border: none;
     margin-right: 15px;
     cursor: pointer;
+}
+
+.check-out a {
+    border-radius: 8px;
+    padding: 9px 20px;
+    color: white;
+    font-size: 15px;
 }
 
 .games-cart-photo {
