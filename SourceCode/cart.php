@@ -72,20 +72,25 @@ if (!isset($_SESSION['user_id'])) {
         </div>
         </form>
         <?php
-function remove_from_cart(){
+function remove_from_cart() {
     global $conn;
-    if(isset($_POST['removefromcart'])){
-        foreach($_POST['removegame'] as $remove_game){
-            $delete_query = "DELETE FROM cart WHERE cart_id=$remove_game";
-            $run_delete = mysqli_query($conn, $delete_query);
-            if($run_delete){
-                echo "<script>window.open('cart.php', '_self')</script>";
+
+    if (isset($_POST['removefromcart'])) {
+        if (isset($_POST['removegame']) && is_array($_POST['removegame'])) {
+            foreach ($_POST['removegame'] as $remove_game) {
+                $remove_game = intval($remove_game); 
+                $delete_query = "DELETE FROM cart WHERE cart_id=$remove_game";
+                $run_delete = mysqli_query($conn, $delete_query);
             }
+            echo "<script>window.open('cart.php', '_self')</script>";
+        } else {
+            echo "<script>alert('Please select game from cart to remove.');</script>";
         }
     }
 }
 remove_from_cart();
 ?>
+
     </div>
 </div>
 
