@@ -392,7 +392,9 @@ td {
 .th_category,
 .tdreleasedate,
 .tdgameprice,
-.tdcategory {
+.tdcategory,
+.thadmin,
+.adminid {
     text-align: center;
 }
 

@@ -76,6 +76,7 @@ if (isset($_POST['submit'])) {
                     <tr>
                         <th class="thsno">S.No.</th>
                         <th class="thname">Category</th>
+                        <th class="thadmin">Admin Id</th>
                         <th class="thaction" colspan="2">Actions</th>
                     </tr>
                 </thead>
@@ -91,6 +92,7 @@ if (isset($_POST['submit'])) {
                     <tr>
                         <td class="tdsno"><?php echo $i . '.'; ?></td>
                         <td class="tdname"><?php echo $row_data['category_name']; ?></td>
+                        <td class="adminid"><?php echo $_SESSION['admin_id'] ?></td>
                         <td class="tdaction">
                             <a href="./category_edit.php?id=<?php echo $row_data['category_id']; ?>"
                                 class="btn btn--small">Edit</a>
