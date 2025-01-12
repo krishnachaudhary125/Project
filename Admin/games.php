@@ -127,6 +127,7 @@ if (isset($_POST['submit'])) {
                         <th class="th_category">Category</th>
                         <th class="th_release_date">Release Date</th>
                         <th class="th_game_price">Game Price (NPR)</th>
+                        <th class="thadmin">Admin Id</th>
                         <th class="thaction" colspan="2">Actions</th>
                     </tr>
                 </thead>
@@ -161,6 +162,7 @@ if (isset($_POST['submit'])) {
                         ?>
                         </td>
                         <td class="tdgameprice"><?php echo $row['game_price']; ?></td>
+                        <td class="adminid"><?php echo $_SESSION['admin_id'] ?></td>
                     </tr>
                     <?php endwhile; ?>
                 </tbody>
