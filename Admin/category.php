@@ -23,7 +23,8 @@ if (isset($_POST['submit'])) {
     if ($result->num_rows > 0) {
         echo "<script>alert('This category already exists.')</script>";
     } else {
-        $sqlQuery = "INSERT INTO category (category_name) VALUES (?)";
+        $admin_id = $_SESSION['admin_id'];
+        $sqlQuery = "INSERT INTO category (category_name, admin_id) VALUES (?, ?)";
         $stmt = $conn->prepare($sqlQuery);
         if ($stmt === false) {
             die("Prepare failed: " . $conn->error);
