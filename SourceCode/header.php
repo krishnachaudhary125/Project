@@ -44,10 +44,42 @@ session_start();
             <span class="close-btn" onclick="closePopup()">&times;</span>
             <div class="account_content">
                 <ul>
-                    <?php
-                if (isset($_SESSION['user_name'])): ?>
-                    <li><a href="#"><?php echo $_SESSION['user_name']; ?></a></li>
-                    <li><a href="../Admin/logout.php">Logout</a></li>
+                    <?php if (isset($_SESSION['user_name'])): ?>
+                    <li>
+                        <h2><strong><?php echo $_SESSION['user_name']; ?></strong></h2>
+                    </li>
+                    <div class="profile">
+                        <li><a href="edit_profile.php">
+                                <div class="profile-settings"><img src="../Photos/edit_profile.png" alt="Logout"
+                                        class="icon-profile">
+                                    <h3>Edit Profile</h3>
+                                </div>
+                            </a></li>
+                        <li><a href="cart.php">
+                                <div class="profile-settings"><img src="../Photos/cart.png" alt="Logout"
+                                        class="icon-profile">
+                                    <h3>Check Cart</h3>
+                                </div>
+                            </a></li>
+                        <li><a href="order_history.php">
+                                <div class="profile-settings"><img src="../Photos/purchase.png" alt="Logout"
+                                        class="icon-profile">
+                                    <h3>Order History</h3>
+                                </div>
+                            </a></li>
+                        <li><a href="suggestion.php">
+                                <div class="profile-settings"><img src="../Photos/suggestion.png" alt="Logout"
+                                        class="icon-profile">
+                                    <h3>Suggestion</h3>
+                                </div>
+                            </a></li>
+                        <li><a href="../Admin/logout.php">
+                                <div class="profile-settings"><img src="../Photos/logout.png" alt="Logout"
+                                        class="icon-profile">
+                                    <h3>Logout</h3>
+                                </div>
+                            </a></li>
+                    </div>
                     <?php else: ?>
                     <li><a href="sign_in.php">Sign In</a></li>
                     <li><a href="sign_up.php">Sign Up</a></li>
@@ -56,6 +88,7 @@ session_start();
             </div>
         </div>
     </div>
+
 
     <div class="container">
         <div class="main-container">
