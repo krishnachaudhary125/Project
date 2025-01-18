@@ -163,7 +163,7 @@ if (isset($_POST['submit'])) {
                         ?>
                         </td>
                         <td class="tdgameprice"><?php echo $row['game_price']; ?></td>
-                        <td class="adminid"><?php echo $_SESSION['admin_id'] ?></td>
+                        <td class="adminid"><?php echo $row['admin_id']; ?></td>
                     </tr>
                     <?php endwhile; ?>
                 </tbody>
