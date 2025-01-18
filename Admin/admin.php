@@ -8,34 +8,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     exit();
 }
 
-if (isset($_POST['submit'])) {
-    $fullname = $_POST['adminName'];
-    $phone = $_POST['adminPhone'];
-    $email = $_POST['adminEmail'];
-    $psw = $_POST['adminPsw'];
-    $cpsw = $_POST['adminCpsw'];
-
-    if ($psw != $cpsw) {
-        echo "<script>alert('Password not matched.')</script>";
-    } else {
-        $hashPsw = sha1($psw);
-
-        $select_query = "SELECT * from admin WHERE email = '$email'";
-        $res_select = mysqli_query($conn, $select_query);
-        $check = mysqli_num_rows($res_select);
-        if ($check > 0) {
-            echo "<script>alert('Admin with this email already exist.')</script>";
-        } else {
-
-            $sqlQuery = "INSERT INTO admin (fullname, phone, email, password) VALUES ('$fullname', '$phone', '$email', '$hashPsw')";
-
-            $result = mysqli_query($conn, $sqlQuery);
-            if ($result) {
-                echo "<script>alert('Admin created Succesfully.')</script>";
-            }
-        }
-    }
-}
+ 
 ?>
 
 
