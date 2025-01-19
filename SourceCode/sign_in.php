@@ -44,8 +44,8 @@ if (isset($_POST['submit']) == true) {
         <div class="sign-in-form">
             <?php
             if (isset($error)) {
-                foreach ($error as $error) {
-                    echo '<span class="error-msg">' . $error . '</span>';
+                foreach ($error as $errormsg) {
+                    echo '<span class="error-msg">' . $errormsg . '</span>';
                 }
             }
             ?>

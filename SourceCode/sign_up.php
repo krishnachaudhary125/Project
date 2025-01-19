@@ -94,8 +94,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Phone validation
-        if (phone.value !== "" && !/^98\d{8}$/.test(phone.value)) {
-            setError(phone, "Phone number must be 10 digits and start with 98.");
+        if (phone.value !== "" && !/^(98|97)\d{8}$/
+            .test(phone.value)) {
+            setError(phone, "Phone number must be 10 digits and start with 98 or 97.");
         } else {
             clearError(phone);
         }
