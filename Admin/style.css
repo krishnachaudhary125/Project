@@ -326,6 +326,10 @@ span {
     background-color: orangered;
 }
 
+.btn--key {
+    background-color: green;
+}
+
 /* Dashboard */
 
 .box-container {

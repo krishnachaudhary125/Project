@@ -164,6 +164,11 @@ if (isset($_POST['submit'])) {
                         </td>
                         <td class="tdgameprice"><?php echo $row['game_price']; ?></td>
                         <td class="adminid"><?php echo $row['admin_id']; ?></td>
+                        <td class="tdaction">
+                            <button class="btn btn--key" data-id="<?php echo $row_data['game_id']; ?>"
+                                onclick="toggleKeys(this)">Keys</button>
+                        </td>
+
                     </tr>
                     <?php endwhile; ?>
                 </tbody>
