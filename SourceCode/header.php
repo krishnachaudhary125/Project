@@ -73,6 +73,12 @@ session_start();
                                     <h3>Suggestion</h3>
                                 </div>
                             </a></li>
+                        <li><a href="change_password.php">
+                                <div class="profile-settings"><img src="../Photos/change_psw.png" alt="Logout"
+                                        class="icon-profile">
+                                    <h3>Change Password</h3>
+                                </div>
+                            </a></li>
                         <li><a href="../Admin/logout.php">
                                 <div class="profile-settings"><img src="../Photos/logout.png" alt="Logout"
                                         class="icon-profile">
