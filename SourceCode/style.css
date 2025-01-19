@@ -170,7 +170,7 @@ header {
 
 .profile-settings {
     display: flex;
-    padding: 5px 0;
+    padding: 7px 0;
 }
 
 .profile-settings h3 {
@@ -179,7 +179,7 @@ header {
 }
 
 .icon-profile {
-    width: 20px;
+    width: 29px;
 }
 
 .close-btn {
