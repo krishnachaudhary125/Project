@@ -49,7 +49,7 @@ session_start();
                         <h2><strong><?php echo $_SESSION['user_name']; ?></strong></h2>
                     </li>
                     <div class="profile">
-                        <li><a href="edit_profile.php?id=<?php echo $_SESSION['user_id']; ?>">
+                        <li><a href="edit_profile.php?user_id=<?php echo $_SESSION['user_id']; ?>">
                                 <div class="profile-settings"><img src="../Photos/edit_profile.png" alt="Logout"
                                         class="icon-profile">
                                     <h3>Edit Profile</h3>
