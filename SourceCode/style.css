@@ -953,3 +953,56 @@ td {
 }
 
 /* Suggestion End */
+
+/* Edit Profile Start */
+
+.edit-profile-container {
+    background-color: white;
+    box-shadow: 3px 3px 10px rgb(188, 188, 188);
+    color: black;
+    padding: 60px;
+    margin: 15px auto;
+    max-width: 30%;
+    text-align: center;
+    height: auto;
+    border-radius: 30px;
+}
+
+.edit-profile-form {
+    padding: 20px 0;
+}
+
+.edit-profile-field {
+    width: 100%;
+    overflow: visible;
+    margin: 30px 0;
+}
+
+.edit-profile-field input {
+    padding-left: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    width: 100%;
+    padding: 20px 10px;
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    box-sizing: border-box;
+}
+
+.edit-profile-form button {
+    margin-top: 30px;
+    width: 100%;
+    background: rgb(0, 116, 228);
+    color: white;
+    border: none;
+    padding: 20px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.edit-profile-form button:hover {
+    background: rgb(0, 140, 228);
+}
+
+/* Edit Profile End */
