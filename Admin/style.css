@@ -189,7 +189,8 @@ span {
     color: #fa0b0b
 }
 
-.category-main {
+.category-main,
+.suggestion-main {
     min-height: 300px;
     max-width: 70%;
     margin: 35px auto 0px auto;
@@ -213,7 +214,8 @@ span {
 .users-header,
 .admin-header,
 .category-header,
-.games-header {
+.games-header,
+.suggestion-header {
     height: 80px;
     width: 100%;
     display: flex;
@@ -253,7 +255,8 @@ span {
 .admin-title,
 .games-title,
 .add-category-title,
-.add-admin-title {
+.add-admin-title,
+.suggestion-title {
     text-align: center;
     font-size: 30px;
     font-weight: 600;
@@ -371,7 +374,8 @@ span {
 .users-body,
 .admin-body,
 .category-body,
-.game-body {
+.game-body,
+.suggestion-body {
     max-width: 1160px;
     overflow-x: auto;
     padding: 20px;
@@ -398,7 +402,11 @@ td {
 .tdgameprice,
 .tdcategory,
 .thadmin,
-.adminid {
+.adminid,
+.thuserid,
+.thsuggestion,
+.tduserid,
+.tdsuggestion {
     text-align: center;
 }
 

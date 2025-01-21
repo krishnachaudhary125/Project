@@ -50,6 +50,12 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
                         <h3>Category</h3>
                     </div>
                 </a>
+                <a href="./admin_panel.php?suggestion">
+                    <div class="nav-option option5">
+                        <img src="../Photos/suggestion.png" alt="Category" class="option-icon">
+                        <h3>Suggestion</h3>
+                    </div>
+                </a>
                 <a href="./logout.php">
                     <div class="nav-option option6">
                         <img src="../Photos/logout.png" alt="Logout" class="option-icon">
@@ -83,6 +89,11 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
         <?php
         if (isset($_GET['category'])) {
             include 'category.php';
+        }
+        ?>
+        <?php
+        if (isset($_GET['suggestion'])) {
+            include 'suggestion.php';
         }
         ?>
     </div>
