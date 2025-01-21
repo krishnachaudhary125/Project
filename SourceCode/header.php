@@ -50,31 +50,31 @@ session_start();
                     </li>
                     <div class="profile">
                         <li><a href="edit_profile.php?user_id=<?php echo $_SESSION['user_id']; ?>">
-                                <div class="profile-settings"><img src="../Photos/edit_profile.png" alt="Logout"
+                                <div class="profile-settings"><img src="../Photos/edit_profile.png" alt="Edit Profile"
                                         class="icon-profile">
                                     <h3>Edit Profile</h3>
                                 </div>
                             </a></li>
                         <li><a href="cart.php">
-                                <div class="profile-settings"><img src="../Photos/cart.png" alt="Logout"
+                                <div class="profile-settings"><img src="../Photos/cart.png" alt="Check Cart"
                                         class="icon-profile">
                                     <h3>Check Cart</h3>
                                 </div>
                             </a></li>
                         <li><a href="order_history.php">
-                                <div class="profile-settings"><img src="../Photos/purchase.png" alt="Logout"
+                                <div class="profile-settings"><img src="../Photos/purchase.png" alt="Order History"
                                         class="icon-profile">
                                     <h3>Order History</h3>
                                 </div>
                             </a></li>
                         <li><a href="suggestion.php">
-                                <div class="profile-settings"><img src="../Photos/suggestion.png" alt="Logout"
+                                <div class="profile-settings"><img src="../Photos/suggestion.png" alt="Suggestion"
                                         class="icon-profile">
                                     <h3>Suggestion</h3>
                                 </div>
                             </a></li>
                         <li><a href="change_password.php">
-                                <div class="profile-settings"><img src="../Photos/change_psw.png" alt="Logout"
+                                <div class="profile-settings"><img src="../Photos/change_psw.png" alt="Change Password"
                                         class="icon-profile">
                                     <h3>Change Password</h3>
                                 </div>
