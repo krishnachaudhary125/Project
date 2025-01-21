@@ -24,6 +24,47 @@ header {
     align-items: center;
 }
 
+.header-popup {
+    display: none;
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1000;
+    justify-content: flex-end;
+}
+
+.popup-content-header {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 290px;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+.header-profile {
+    padding-left: 20px;
+}
+
+.profile-settings {
+    display: flex;
+    padding: 7px 0;
+}
+
+.profile-settings h3 {
+    font-size: 17px;
+    padding-left: 15px;
+}
+
+.icon-profile {
+    width: 29px;
+}
+
 .dash-logo {
     height: 70px;
     cursor: pointer;
@@ -38,6 +79,12 @@ header {
 .menu-icon {
     height: 41px;
     cursor: pointer;
+}
+
+.admin-profile {
+    height: 41px;
+    cursor: pointer;
+    margin-right: 25px;
 }
 
 .main-container {

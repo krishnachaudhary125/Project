@@ -12,6 +12,8 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
         <img src="../Photos/logo.png" alt="logo" class="dash-logo">
     </div>
     <div class="dash-menu">
+        <a href="#" onclick="openPopup()">
+            <img src="../Photos/profile.png" alt="Admin Profile" class="admin-profile"></a>
         <img src="../Photos/hamburger.png" alt="Menu" class="menu-icon" id="menu-icon">
     </div>
 </header>
@@ -52,20 +54,15 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
                 </a>
                 <a href="./admin_panel.php?suggestion">
                     <div class="nav-option option5">
-                        <img src="../Photos/suggestion.png" alt="Category" class="option-icon">
+                        <img src="../Photos/suggestion.png" alt="Suggestion" class="option-icon">
                         <h3>Suggestion</h3>
-                    </div>
-                </a>
-                <a href="./logout.php">
-                    <div class="nav-option option6">
-                        <img src="../Photos/logout.png" alt="Logout" class="option-icon">
-                        <h3>Logout</h3>
                     </div>
                 </a>
             </div>
         </nav>
     </div>
-    <div class=" dashboard-main">
+
+    <div class="dashboard-main">
         <?php
         if (isset($_GET['dashboard'])) {
             include 'dashboard.php';
@@ -98,6 +95,43 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
         ?>
     </div>
 </div>
+
+<div id="accountPopup" class="header-popup">
+    <div class="popup-content-header">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <div class="account_content">
+            <ul>
+                <?php if (isset($_SESSION['admin_name'])): ?>
+                <li>
+                    <h2><strong><?php echo $_SESSION['admin_name']; ?></strong>
+                    </h2>
+                </li>
+                <div class="header-profile">
+                    <li><a href="edit_profile.php?admin_id=<?php echo $_SESSION['admin_id']; ?>">
+                            <div class="profile-settings"><img src="../Photos/edit_profile.png" alt="Edit Profile"
+                                    class="icon-profile">
+                                <h3>Edit Profile</h3>
+                            </div>
+                        </a></li>
+                    <li><a href="change_password.php">
+                            <div class="profile-settings"><img src="../Photos/change_psw.png" alt="Change Password"
+                                    class="icon-profile">
+                                <h3>Change Password</h3>
+                            </div>
+                        </a></li>
+                    <li><a href="logout.php">
+                            <div class="profile-settings"><img src="../Photos/logout.png" alt="Logout"
+                                    class="icon-profile">
+                                <h3>Logout</h3>
+                            </div>
+                        </a></li>
+                </div>
+                <?php endif; ?>
+            </ul>
+        </div>
+    </div>
+</div>
+
 <script>
 let menu_icon = document.querySelector(".menu-icon");
 let nav = document.querySelector(".nav-body");
@@ -105,6 +139,21 @@ let nav = document.querySelector(".nav-body");
 menu_icon.addEventListener("click", () => {
     nav.classList.toggle("navclose");
 });
+
+function openPopup() {
+    document.getElementById('accountPopup').style.display = 'flex';
+}
+
+function closePopup() {
+    document.getElementById('accountPopup').style.display = 'none';
+}
+
+window.onclick = function(event) {
+    const popup = document.getElementById('accountPopup');
+    if (event.target == popup) {
+        popup.style.display = 'none';
+    }
+};
 </script>
 <?php
 include 'footer.php';

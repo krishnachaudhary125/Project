@@ -61,7 +61,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
                         <th class="thname">Fullname</th>
                         <th class="thphone">Phone No.</th>
                         <th class="themail">E-Mail</th>
-                        <th class="thaction" colspan="2">Actions</th>
+                        <th class="thaction">Actions</th>
                     </tr>
                 </thead>
                 <?php
@@ -77,10 +77,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
                         <td class="tdname"><?php echo $row_data['fullname']; ?></td>
                         <td class="tdphone"><?php echo $row_data['phone']; ?></td>
                         <td class="tdemail"><?php echo $row_data['email']; ?></td>
-                        <td class="tdaction">
-                            <a href="./Action/user_edit.php?id=<?php echo $row_data['admin_id']; ?>"
-                                class="btn btn--small">Edit</a>
-                        </td>
                         <td class="tdaction">
                             <a href="./Action/admin_delete.php?id=<?php echo $row_data['admin_id']; ?>"
                                 class="btn btn--danger" onclick="return confirmDelete();">Delete</a>
