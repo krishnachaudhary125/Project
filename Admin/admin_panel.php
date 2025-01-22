@@ -98,6 +98,11 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
             include 'edit_profile.php';
         }
         ?>
+        <?php
+        if (isset($_GET['change_password'])) {
+            include 'change_password.php';
+        }
+        ?>
     </div>
 </div>
 
@@ -118,7 +123,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
                                 <h3>Edit Profile</h3>
                             </div>
                         </a></li>
-                    <li><a href="change_password.php">
+                    <li><a href="./admin_panel.php?change_password&admin_id=<?php echo $_SESSION['admin_id']; ?>">
                             <div class="profile-settings"><img src="../Photos/change_psw.png" alt="Change Password"
                                     class="icon-profile">
                                 <h3>Change Password</h3>
