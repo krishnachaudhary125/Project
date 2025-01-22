@@ -67,7 +67,7 @@ if (!isset($_SESSION['user_id'])) {
         </div>
         <div class="checkout">
             <p>Total Price: <?php echo $total_price; ?></p>
-            <button type="submit" class="check-out" onclick="myFunction()"><a href="checkout.php">Checkout</a></button>
+            <button type="button" class="check-out" onclick="togglePaymentOption()">Checkout</button>
             <button type="submit" class="remove" name="removefromcart">Remove</button>
         </div>
         </form>
@@ -93,7 +93,30 @@ remove_from_cart();
 
     </div>
 </div>
-
+<div class="payment-option" style="display: none;">
+    <div class="available">
+        <div class="available-system">
+            <h1 class="payment-header">Select Payment System</h1>
+        </div>
+        <div class="payment">
+            <input type="image" src="../Photos/esewa.png">
+        </div>
+    </div>
+    <div class="not-available">
+        <div class="not-available-system">
+            <h1 class="payment-header">Will be available soon!!</h1>
+        </div>
+        <div class="payment">
+            <input type="image" src="../Photos/khalti.png">
+        </div>
+    </div>
+</div>
+<script>
+function togglePaymentOption() {
+    const paymentOption = document.querySelector('.payment-option');
+    paymentOption.style.display = paymentOption.style.display === 'none' ? 'block' : 'none';
+}
+</script>
 <?php
 include "footer.php";
 ?>
