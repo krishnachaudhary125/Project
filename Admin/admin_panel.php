@@ -93,6 +93,11 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
             include 'suggestion.php';
         }
         ?>
+        <?php
+        if (isset($_GET['edit_profile'])) {
+            include 'edit_profile.php';
+        }
+        ?>
     </div>
 </div>
 
@@ -107,7 +112,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
                     </h2>
                 </li>
                 <div class="header-profile">
-                    <li><a href="edit_profile.php?admin_id=<?php echo $_SESSION['admin_id']; ?>">
+                    <li><a href="./admin_panel.php?edit_profile&admin_id=<?php echo $_SESSION['admin_id']; ?>">
                             <div class="profile-settings"><img src="../Photos/edit_profile.png" alt="Edit Profile"
                                     class="icon-profile">
                                 <h3>Edit Profile</h3>

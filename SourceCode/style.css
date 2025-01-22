@@ -166,11 +166,13 @@ header {
 
 .profile {
     padding-left: 20px;
+    padding-top: 5px;
 }
 
 .profile-settings {
     display: flex;
     padding: 7px 0;
+    align-items: center;
 }
 
 .profile-settings h3 {
@@ -999,6 +1001,7 @@ td {
     padding: 20px;
     margin-bottom: 30px;
     cursor: pointer;
+    border-radius: 15px;
 }
 
 .edit-profile-form button:hover {
