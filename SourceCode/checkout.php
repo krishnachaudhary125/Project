@@ -3,14 +3,24 @@
 include "header.php";
 include "../Database/connection.php";
 
-if($_SERVER['REQUEST_METHOD']==='post'){
-   var_dump($_POST);
-   $cart_id=$_POST['cart_id'];
+if($_SERVER['REQUEST_METHOD']==='POST'){
+    if (isset($_POST['cart_id']) && isset($_POST['total_price'])) {
+        $cart_id = $_POST['cart_id']; // Array of cart IDs
+        $total_price = $_POST['total_price']; // Total price
+
+        // Example: Display the received data
+        echo "<p>Cart IDs: " . implode(', ', $cart_id) . "</p>";
+        echo "<p>Total Price: NPR $total_price</p>";
+    } else {
+        echo "<p style='color: red;'>Required POST data is missing.</p>";
+    }
+
 }
 ?>
 
 
 <div class="payment-option">
+    <?php ?>
     <div class="available">
         <div class="available-system">
             <h1 class="payment-header">Select Payment System</h1>
