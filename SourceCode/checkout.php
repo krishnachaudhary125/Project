@@ -1,5 +1,6 @@
 <?php
 
+include "header.php";
 include "../Database/connection.php";
 
 if($_SERVER['REQUEST_METHOD']==='post'){

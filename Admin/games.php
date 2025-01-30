@@ -31,10 +31,10 @@ if (isset($_POST['submit'])) {
         echo "<script>alert('This game is already added. Try adding other games.')</script>";
     } else {
 
-        $stmt = $conn->prepare("INSERT INTO games (game_name, game_developer, description, category_id, release_date, game_price, game_keyword, game_photo, game_video, admin_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO games (game_name, game_developer, description, category_id, release_date, game_price, game_keyword, game_photo, game_video, admin_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     
 
-        $stmt->bind_param("ssssssss", $gameName, $gameDeveloper, $description, $gameCategory, $releaseDate, $gamePrice, $gameKeyword, $photoPath, $videoPath);
+        $stmt->bind_param("ssssssssss", $gameName, $gameDeveloper, $description, $gameCategory, $releaseDate, $gamePrice, $gameKeyword, $photoPath, $videoPath, $admin_id);
     
 
         if ($stmt->execute()) {

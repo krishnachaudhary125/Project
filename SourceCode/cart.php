@@ -68,13 +68,14 @@ if (!isset($_SESSION['user_id'])) {
         <div class="checkout">
             <p>Total Price: <?php echo $total_price; ?></p>
 
-            <form action="./checkout.php" method="post">
-                <input type="hidden" name="cart_id" value="">
-                <input type="submit" class="check-out" value="Check Out">
-            </form>
+
 
             <button type="submit" class="remove" name="removefromcart">Remove</button>
         </div>
+        </form>
+        <form action="./checkout.php" method="post">
+            <input type="hidden" name="cart_id" value="">
+            <input type="submit" class="check-out" value="Check Out">
         </form>
         <?php
 function remove_from_cart() {
