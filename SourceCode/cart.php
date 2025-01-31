@@ -82,8 +82,8 @@ if (!isset($_SESSION['user_id'])) {
                     $result->data_seek(0); // Reset the result pointer to the beginning
                     while ($row = $result->fetch_assoc()):
                 ?>
-                <input type="hidden" name="game_id[]" value="<?php echo $row['game_id']; ?>">
                 <input type="hidden" name="cart_item_id[]" value="<?php echo $row['cart_item_id']; ?>">
+                <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
                 <?php
                     endwhile;
                 }
