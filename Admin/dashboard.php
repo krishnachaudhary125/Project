@@ -85,7 +85,12 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 
     <div class="box box5">
         <div class="text">
-            <h2 class="topic-heading">320</h2>
+            <?php
+            $amount = "SELECT SUM(total_amount) AS final_amount FROM orders";
+            $result = mysqli_query($conn, $amount);
+            ?>
+            <h2 class="topic-heading"><?php $row = $result->fetch_assoc();
+                                            echo $row['final_amount'];?></h2>
             <h2 class="topic">Total Revenue</h2>
         </div>
 

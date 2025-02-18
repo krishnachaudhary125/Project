@@ -34,6 +34,12 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
                         <h3>Admin</h3>
                     </div>
                 </a>
+                <a href="./admin_panel.php?category">
+                    <div class="nav-option option5">
+                        <img src="../Photos/category.png" alt="Category" class="option-icon">
+                        <h3>Category</h3>
+                    </div>
+                </a>
                 <a href="./admin_panel.php?games">
                     <div class="nav-option option2">
                         <img src="../Photos/game.png" alt="Games" class="option-icon">
@@ -46,10 +52,10 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
                         <h3>Users</h3>
                     </div>
                 </a>
-                <a href="./admin_panel.php?category">
+                <a href="./admin_panel.php?transaction">
                     <div class="nav-option option5">
-                        <img src="../Photos/category.png" alt="Category" class="option-icon">
-                        <h3>Category</h3>
+                        <img src="../Photos/purchase.png" alt="Transaction" class="option-icon">
+                        <h3>Transaction</h3>
                     </div>
                 </a>
                 <a href="./admin_panel.php?suggestion">
@@ -96,6 +102,11 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
         <?php
         if (isset($_GET['edit_profile'])) {
             include 'edit_profile.php';
+        }
+        ?>
+        <?php
+        if (isset($_GET['transaction'])) {
+            include 'transaction.php';
         }
         ?>
         <?php

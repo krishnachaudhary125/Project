@@ -582,3 +582,86 @@ td {
 }
 
 /* Change Password End */
+
+
+.order-main {
+    min-height: 300px;
+    max-width: 900px;
+    margin: 35px auto;
+    background-color: #ffffff;
+    border-radius: 30px;
+    box-shadow: 3px 3px 10px rgb(188, 188, 188);
+    padding: 0px 20px 20px 20px;
+}
+
+.order-header {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0px 10px 0px;
+    border-bottom: 2px solid rgba(0, 20, 151, 0.59);
+}
+
+.order-title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    color: #5500cb;
+}
+
+.order-body {
+    max-width: 1160px;
+    overflow-x: auto;
+    padding: 20px;
+}
+
+.game-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.game-photo {
+    width: auto;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.game-details {
+    display: contents;
+    flex: 1;
+    justify-content: space-between;
+    text-align: start;
+    gap: 20px;
+}
+
+.game-info,
+.game-cost {
+    flex: 1;
+}
+
+.game-info p,
+.game-cost p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.order-table {
+    width: 100%;
+}
+
+.order-table th,
+.order-table td {
+    text-align: center;
+    padding: 0px 25px 11px 25px;
+}

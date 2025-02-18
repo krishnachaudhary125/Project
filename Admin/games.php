@@ -60,15 +60,6 @@ if (isset($_POST['submit'])) {
             <form action="" method="post" name="add_game_popup" enctype="multipart/form-data"
                 onsubmit="return validateForm()">
                 <div class="add-game-field">
-                    <input type="text" id="game_name" name="game_name" placeholder="Game Name">
-                </div>
-                <div class="add-game-field">
-                    <input type="text" id="game_developer" name="game_developer" placeholder="Developer">
-                </div>
-                <div class="add-game-field">
-                    <textarea name="description" id="description" placeholder="Description"></textarea>
-                </div>
-                <div class="add-game-field">
                     <select name="game_category" id="game_category">
                         <option value="" disabled selected hidden>Select Category</option>
                         <?php
@@ -81,6 +72,15 @@ if (isset($_POST['submit'])) {
                         </option>
                         <?php endwhile; ?>
                     </select>
+                </div>
+                <div class="add-game-field">
+                    <input type="text" id="game_name" name="game_name" placeholder="Game Name">
+                </div>
+                <div class="add-game-field">
+                    <input type="text" id="game_developer" name="game_developer" placeholder="Developer">
+                </div>
+                <div class="add-game-field">
+                    <textarea name="description" id="description" placeholder="Description"></textarea>
                 </div>
                 <div class="add-game-field">
                     <label for="release_date">Release Date</label>
