@@ -1080,21 +1080,6 @@ td {
     padding: 20px;
 }
 
-.th_sno,
-.th_tuuid,
-.th_amt,
-.th_status,
-.th_games,
-.th_time,
-.td_sno,
-.td_tuuid,
-.td_amt,
-.td_status,
-.td_games,
-.td_time {
-    text-align: center;
-}
-
 .game-item {
     display: flex;
     align-items: center;
@@ -1118,6 +1103,7 @@ td {
     display: contents;
     flex: 1;
     justify-content: space-between;
+    text-align: start;
     gap: 20px;
 }
 
@@ -1131,6 +1117,16 @@ td {
     margin: 5px 0;
     font-size: 14px;
     color: #333;
+}
+
+.order-table {
+    width: 100%;
+}
+
+.order-table th,
+.order-table td {
+    text-align: center;
+    padding: 0px 25px 11px 25px;
 }
 
 

@@ -10,7 +10,7 @@ include "../Database/connection.php";
 
     <div class="order-body">
         <div class="order-data">
-            <table>
+            <table class="order-table">
                 <thead>
                     <tr>
                         <th class="th_sno">S.No</th>
