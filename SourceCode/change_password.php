@@ -72,9 +72,9 @@ if (isset($_POST['submit']) == true) {
             </div>
             <button type="submit" id="submit" name="submit">Confirm</button>
         </div>
-        <p class="sign-in-p">OR</p>
+        <!-- <p class="sign-in-p">OR</p> -->
         <div class="change-psw-a">
-            <a href="forgot_psw.php" target="_self">Forgot Password</a>
+            <!-- <a href="forgot_psw.php" target="_self">Forgot Password</a> -->
         </div>
     </form>
 </div>
