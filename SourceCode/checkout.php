@@ -16,6 +16,10 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 $transaction_uuid = mt_rand(100000, 999999);
 $message = "total_amount=$total_amount,transaction_uuid=$transaction_uuid,product_code=EPAYTEST";
 $s = hash_hmac('sha256', $message, '8gBm/:&EnhH.1/q', true);
+
+$_SESSION['signature'] = base64_encode($s);
+$_SESSION['cart_item_ids_str'] = $cart_item_ids_str;
+$_SESSION['total_amount'] = $total_amount;
 ?>
 
 
@@ -37,8 +41,11 @@ $s = hash_hmac('sha256', $message, '8gBm/:&EnhH.1/q', true);
                 <input type="text" id="product_service_charge" name="product_service_charge" value="0" required hidden>
                 <input type="text" id="product_delivery_charge" name="product_delivery_charge" value="0" required
                     hidden>
-                <input type="text" id="success_url" name="success_url" value="https://esewa.com.np" required hidden>
-                <input type="text" id="failure_url" name="failure_url" value="https://google.com" required hidden>
+                <input type="text" id="success_url" name="success_url"
+                    value="https://localhost/Project/SourceCode/success.php" required hidden>
+
+                <input type="text" id="failure_url" name="failure_url"
+                    value="https://localhost/Project/SourceCode/failure.php" required hidden>
                 <input type="text" id="signed_field_names" name="signed_field_names"
                     value="total_amount,transaction_uuid,product_code" required hidden>
                 <input type="text" id="signature" name="signature" value="<?php echo base64_encode($s); ?>" required
