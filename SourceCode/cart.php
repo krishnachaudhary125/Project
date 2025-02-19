@@ -76,24 +76,34 @@ if (!isset($_SESSION['user_id'])) {
             </form>
 
             <!-- Checkout Form -->
-            <form action="./checkout.php" method="post">
+            <form id="checkoutForm" action="./checkout.php" method="post">
                 <?php
-                if ($result->num_rows > 0) {
-                    $result->data_seek(0); // Reset the result pointer to the beginning
-                    while ($row = $result->fetch_assoc()):
-                ?>
+    if ($result->num_rows > 0) {
+        $result->data_seek(0); // Reset the result pointer to the beginning
+        while ($row = $result->fetch_assoc()):
+    ?>
                 <input type="hidden" name="cart_item_id[]" value="<?php echo $row['cart_item_id']; ?>">
                 <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
                 <?php
-                    endwhile;
-                }
-                ?>
+        endwhile;
+    }
+    ?>
                 <input type="hidden" name="total_price" value="<?php echo $total_price; ?>">
-                <input type="submit" class="check-out" value="Check Out">
+                <input type="submit" class="check-out" value="Check Out" onclick="return checkCart();">
             </form>
         </div>
     </div>
 </div>
+<script>
+function checkCart() {
+    var totalPrice = <?php echo $total_price; ?>;
+    if (totalPrice === 0) {
+        alert("Your cart is empty. Please add games before checking out.");
+        return false; // Prevent form submission
+    }
+    return true;
+}
+</script>
 
 <?php
 // Function to remove items from the cart
