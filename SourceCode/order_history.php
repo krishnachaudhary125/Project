@@ -69,7 +69,15 @@ include "../Database/connection.php";
                                     <div class="game-details">
                                         <div class="game-info">
                                             <p><strong>Game Name:</strong> <?php echo $game['game_name']; ?></p>
-                                            <p><strong>Game Key:</strong> <?php echo "12345678"; ?></p>
+                                            <p><strong>Game Key:</strong>
+                                                <?php 
+        $game_key = "12345678"; // Your actual game key
+        $masked_key = str_repeat('*', strlen($game_key));
+        ?>
+                                                <span class="masked-key"><?php echo $masked_key; ?></span>
+                                                <span class="game-key"><?php echo $game_key; ?></span>
+                                                <button class="toggle-key-btn">👁️</button>
+                                            </p>
                                         </div>
                                         <div class="game-cost">
                                             <p><strong>Game Price:</strong> <?php echo $game['game_price']; ?></p>
@@ -110,6 +118,26 @@ document.querySelectorAll('.toggle-games').forEach(button => {
         } else {
             row.style.display = 'none';
             this.textContent = 'View';
+        }
+    });
+});
+
+document.querySelectorAll('.toggle-key-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const keyContainer = this.parentElement;
+        const maskedKey = keyContainer.querySelector('.masked-key');
+        const realKey = keyContainer.querySelector('.game-key');
+
+        const showingMasked = maskedKey.style.display !== 'none';
+
+        if (showingMasked) {
+            maskedKey.style.display = 'none';
+            realKey.style.display = 'inline';
+            this.textContent = '👁️'; // Open eye icon
+        } else {
+            maskedKey.style.display = 'inline';
+            realKey.style.display = 'none';
+            this.textContent = '👁️'; // Closed eye icon
         }
     });
 });

@@ -1129,6 +1129,22 @@ td {
     padding: 0px 25px 11px 25px;
 }
 
+.toggle-key-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 5px;
+    font-size: 1.2em;
+    color: #666;
+}
 
+.game-key {
+    display: none;
+}
+
+.masked-key {
+    display: inline;
+}
 
 /* Order History End */

@@ -18,12 +18,12 @@ if (isset($_POST['submit'])) {
     $gameVideo = $_FILES['game_video']['name'];
     $gameVideoTemp = $_FILES['game_video']['tmp_name'];
 
-    $photoPath = "../Database/uploads/photos/" . basename($gamePhoto);
-    $videoPath = "../Database/uploads/videos/" . basename($gameVideo);
+    $photoPath = "../Database/uploads/photos/" . time() . basename($gamePhoto);
+    $videoPath = "../Database/uploads/videos/" . time() . basename($gameVideo);
 
     move_uploaded_file($gamePhotoTemp, $photoPath);
     move_uploaded_file($gameVideoTemp, $videoPath);
-
+ 
     $checkQuery = "SELECT * FROM games WHERE game_name = '$gameName' AND game_developer = '$gameDeveloper'";
     $result = $conn->query($checkQuery);
 

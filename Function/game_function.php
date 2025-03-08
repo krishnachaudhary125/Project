@@ -40,7 +40,7 @@ while ($row_data = mysqli_fetch_assoc($game_select)):
             <p>Category : <?php echo $row_data['category_name']; ?></p>
         </div>
         <div class="game-cart">
-            <div class="cost"><?php echo 'Npr  ' . $row_data['game_price']; ?></div>
+            <div class="cost"><?php echo 'Nrp  ' . $row_data['game_price']; ?></div>
             <a href="games.php?add_to_cart=<?php echo $row_data['game_id']; ?>"><button>Add to Cart</button></a>
         </div>
     </div>
