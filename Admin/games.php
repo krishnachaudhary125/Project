@@ -129,7 +129,7 @@ if (isset($_POST['submit'])) {
                         <th class="th_release_date">Release Date</th>
                         <th class="th_game_price">Game Price (NPR)</th>
                         <th class="thadmin">Admin Id</th>
-                        <th class="thaction" colspan="2">Actions</th>
+                        <th class="thaction" colspan="2">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -165,8 +165,8 @@ if (isset($_POST['submit'])) {
                         <td class="tdgameprice"><?php echo $row['game_price']; ?></td>
                         <td class="adminid"><?php echo $row['admin_id']; ?></td>
                         <td class="tdaction">
-                            <button class="btn btn--key" data-id="<?php echo $row_data['game_id']; ?>"
-                                onclick="toggleKeys(this)">Keys</button>
+                            <a href="./Action/game_delete.php?id=<?php echo $row['game_id']; ?>" class="btn btn--danger"
+                                onclick="return confirmDelete();">Delete</a>
                         </td>
 
                     </tr>
@@ -178,6 +178,10 @@ if (isset($_POST['submit'])) {
 </div>
 
 <script>
+function confirmDelete() {
+    return confirm("You want to delete this game?");
+};
+
 function myFunction() {
     document.getElementById("addGamePopup").style.display = "block";
 };
